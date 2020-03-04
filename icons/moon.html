@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .moon.center {
+            background-color: #999999;
+            position: absolute;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+        }
+
+        .moon.dot {
+            background-color: #666666;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .moon.dot.one {
+            width: 0.2em;
+            height: 0.2em;
+            top: 0.6em;
+            left: 0.25em;
+        }
+
+        .moon.dot.two {
+            width: 0.1em;
+            height: 0.1em;
+            top: 0.45em;
+            left: 0.6em;
+        }
+
+        .moon.dot.three {
+            width: 0.15em;
+            height: 0.15em;
+            top: 0.25em;
+            left: 0.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="moon">
+        <div class="moon center">
+            <div class="moon dot one"></div>
+            <div class="moon dot two"></div>
+            <div class="moon dot three"></div>
+        </div>
+    </div>
+</body>
+
+</html>

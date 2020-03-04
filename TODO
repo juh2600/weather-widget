@@ -1,0 +1,16 @@
+Improve daily summary data
+Sort...times
+
+DONE
+Set up desktop layout
+Inform user when a query returns 404
+Attempt to parse input as ZIP or other format before q=
+Convert wind direction to cardinal & co.
+Add more icons
+    Rain
+    Snow
+    Lightning
+Make city name a link to Google Maps
+Support using GET parameter to store initial location
+Implement algorithm for choosing optimal background
+Implement functionality to swap styles for optimal background

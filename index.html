@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Weather</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="images/icon.png" rel="icon" />
+	<script src="scripts/icons.js"></script>
+	<script src="scripts/themes.js"></script>
+	<script src="scripts/util.js"></script>
+	<script src="scripts/fetch.js"></script>
+	<meta name="viewport" content="width=device-width" />
+</head>
+
+<body>
+	<main>
+		<div id="search-container">
+			<input name="query" id="search" placeholder="Search" type="text" autocomplete="off" />
+			<span id="search-status">Loading...</span>
+		</div>
+		<section id="content">
+			<h1 id="parsed-query-pretty"></h1>
+			<ul id="overview-container" class="plain">
+			</ul>
+		</section>
+	</main>
+</body>
+
+</html>
