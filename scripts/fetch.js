@@ -239,6 +239,13 @@ const searchFromBox = (evt) => {
 };
 
 const consoleHelp = () => {
+    console.log('Things to try:');
+    console.log(' - Resize the page: it\'s responsive, with full feature parity between mobile and desktop views');
+    console.log(' - Search for Athens');
+    console.log(' - Search for Athens, GR');
+    console.log(' - Search for your ZIP code');
+    console.log(' - Search for somewhere that doesn\'t exist');
+    console.log(' - Click the daily summaries to view 3-hour breakdowns');
     console.log('Use applyTheme(themeName) to force another theme, where themeName is one of the names listed above')
 };
 
