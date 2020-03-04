@@ -18,7 +18,7 @@ const fetchData = (url, callback) => {
         .then(response => response.json())
         .then(data => {
             if (~~(data.cod) >= 400) throw data;
-            console.log(data);
+            // console.log(data);
             callback(data);
         })
         .catch(handleFetchError);
@@ -127,7 +127,6 @@ const summarizeRecords = (records) => {
         summary.wind.speed = windSpeed;
         let condition = '';
         let conditions = records.map((record) => record.weather[0].main);
-        console.log(conditions);
         if(conditions.includes('Mist')) condition = 'Mist';
         if(conditions.includes('Haze')) condition = 'Haze';
         if(conditions.includes('Fog')) condition = 'Fog';
@@ -219,7 +218,7 @@ const populateView = (data) => {
 };
 
 const search = (query) => {
-    console.log(query);
+    console.log('Requesting weather for ' + query);
     if (query == 'q=undefined' || query == 'q=' || query == '' || query == 'q=null' || !query) {
         document.getElementById('search-status').innerHTML = '';
     } else fetchData(buildForecastRequest(query), populateView);
@@ -239,6 +238,10 @@ const searchFromBox = (evt) => {
     if (query) search(detectQueryType(query));
 };
 
+const consoleHelp = () => {
+    console.log('Use applyTheme(themeName) to force another theme, where themeName is one of the names listed above')
+};
+
 document.addEventListener('DOMContentLoaded', (evt) => {
     populateThemes();
     applyTheme('unimplemented');
@@ -247,4 +250,5 @@ document.addEventListener('DOMContentLoaded', (evt) => {
     document.getElementById('search').addEventListener('keypress', (evt) => {
         if (evt.key === "Enter") searchFromBox(evt);
     });
+    consoleHelp();
 });
