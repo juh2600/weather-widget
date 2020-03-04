@@ -3,7 +3,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #aaaabbee 0, #aaaabb88 100%)",
-            "image": "url('images/overcast-medium.jpg')"
+            "image": "url('images/overcast-medium.jpg'), url('https://motionarray.imgix.net/preview-2139iK66sRYeMr_0013.jpg')"
         },
         "search": {
             "border": "#888888cc",
@@ -18,7 +18,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #87ceeb, transparent 120%)",
-            "image": "url('images/sun-clear.jpeg')"
+            "image": "url('images/sun-clear.jpeg'), url('https://s7d2.scene7.com/is/image/TWCNews/1031_nc_sunny_weather_2-1')"
         },
         "search": {
             "border": "#999999aa",
@@ -33,7 +33,7 @@ const themes = {
         "color": "#e0e0e0ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #333333ee, #33333399)",
-            "image": "url('images/night-light-clouds.png')"
+            "image": "url('images/night-light-clouds.png'), url('https://interlude-cdn-blob-prod.azureedge.net/interlude-blob-storage-prod/2018/11/Night-1.png')"
         },
         "search": {
             "border": "#555555aa",
@@ -48,7 +48,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #aaaabbee, #aaaaaaaa)",
-            "image": "url('images/rain.png')"
+            "image": "url('images/rain.png'), url('https://mediaassets.ksby.com/cordillera-network/wp-content/uploads/sites/2/2018/09/30193226/Rain-e1543509507138.png')"
         },
         "search": {
             "border": "#888888cc",
@@ -63,7 +63,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #aaaabbdd, #aaaaaabb)",
-            "image": "url('images/drizzle.jpg')"
+            "image": "url('images/drizzle.jpg'), url('https://community-impact-website.s3.amazonaws.com/uploads/wpengine/uploads/2018/02/Fotolia_163966311_Subscription_XXL.jpg')"
         },
         "search": {
             "border": "#777777cc",
@@ -78,7 +78,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #ffffff88, #ffffffaa)",
-            "image": "url('images/snow.jpg')"
+            "image": "url('images/snow.jpg'), url('https://ak8.picdn.net/shutterstock/videos/29922238/thumb/1.jpg')"
         },
         "search": {
             "border": "#aaaaaa88",
@@ -93,7 +93,7 @@ const themes = {
         "color": "#e0e0e0ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #111111ee, #333333aa)",
-            "image": "url('images/thunderstorm.jpg')",
+            "image": "url('images/thunderstorm.jpg'), url('https://cdn.hswstatic.com/gif/thunderstorm-orig.jpg')",
         },
         "search": {
             "border": "#555555aa",
@@ -108,7 +108,7 @@ const themes = {
         "color": "#202020ff",
         "background": {
             "gradient": "linear-gradient(to bottom, #aaaaaa44, #ffffffaa)",
-            "image": "url('images/unimplemented.jpg')",
+            "image": "url('images/unimplemented.jpg'), url('https://wayscapecounseling.org/wp-content/uploads/2018/08/Blurred-adventure-calm-clouds-414171.jpg')",
         },
         "search": {
             "border": "#555555aa",
