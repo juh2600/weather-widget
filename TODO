@@ -10,7 +10,7 @@ Add more icons
     Snow
     Lightning
 Make city name a link to Google Maps
-Support using GET parameter to store initial location
+Support using GET parameter to store initial location and units
 Implement algorithm for choosing optimal background
 Implement functionality to swap styles for optimal background
 Improve daily summary data

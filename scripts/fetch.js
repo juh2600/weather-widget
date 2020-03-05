@@ -242,11 +242,18 @@ const consoleHelp = () => {
     console.log('Things to try:');
     console.log(' - Resize the page: it\'s responsive, with full feature parity between mobile and desktop views');
     console.log(' - Search for Athens');
-    console.log(' - Search for Athens, GR');
+    console.log(' - Search for Athens, US (it\'s in Georgia)');
     console.log(' - Search for your ZIP code');
     console.log(' - Search for somewhere that doesn\'t exist');
-    console.log(' - Click the daily summaries to view 3-hour breakdowns');
-    console.log('Use applyTheme(themeName) to force another theme, where themeName is one of the names listed above')
+    console.log(' - Append q= with a query string to the URL to specify the default search');
+    console.log(' - Append u= with one of {imperial|metric|si} to specify the default search');
+    console.log(' - Not sure which Springfield you\'re looking at? Click the name of the city to view it in Google Maps');
+    console.log(' - Click the daily summaries to toggle 3-hour breakdowns');
+    console.log(' - Use applyTheme(themeName) to force another theme, where themeName is one of the names listed above (or good luck collecting places with the right weather to try them all out)');
+};
+
+const reloadInPlace = () => {
+    search(lastQuery);
 };
 
 document.addEventListener('DOMContentLoaded', (evt) => {
