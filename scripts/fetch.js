@@ -2,6 +2,7 @@ const api_base = 'http://api.openweathermap.org/data/2.5';
 let units = 'imperial';
 
 let lastQuery = 'Salt Lake City';
+let lastQueryBak = lastQuery;
 let dayExpansionStates = null;
 
 const default_wind_precision = 2;
@@ -27,6 +28,7 @@ const fetchData = (url, callback) => {
 
 const handleFetchError = (err) => {
     console.log("Error: ", err);
+    lastQuery = lastQueryBak;
     if (~~(err.cod) == 404) {
         let status = document.getElementById('search-status');
         status.innerHTML = 'Location not found';
@@ -230,6 +232,7 @@ const populateView = (data) => {
     let theme = determineOptimalTheme(data.list);
     applyTheme(theme);
     if(dayExpansionStates) setDayExpansionStates(dayExpansionStates);
+    lastQueryBak = lastQuery;
 };
 
 const search = (query) => {
