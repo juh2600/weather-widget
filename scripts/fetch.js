@@ -1,12 +1,13 @@
 const api_base = 'http://api.openweathermap.org/data/2.5';
-const units = 'imperial';
+let units = 'imperial';
 
-const sample_query = 'Salt Lake City';
+let lastQuery = 'Salt Lake City';
+let dayExpansionStates = null;
 
-const wind_precision = 2;
+const default_wind_precision = 2;
 
 const buildRequest = (api_base, api_branch, query, api_key) => {
-    return `${api_base}/${api_branch}?${query}&units=${units}&appid=${api_key}`;
+    return `${api_base}/${api_branch}?${query}&units=${units||''}&appid=${api_key}`;
 };
 
 const buildForecastRequest = (query) => {
@@ -80,6 +81,12 @@ const populateThemes = () => {
         body.theme-${theme} #search::placeholder {
             color: ${t['search']['color']};
         }
+        body.theme-${theme} input[type="radio"]:checked + label {
+            background-color: ${t['unit-selector']['selected']};
+        }
+        body.theme-${theme} input[type="radio"] + label:hover {
+            background-color: ${t['unit-selector']['hover']};
+        }
         @media all and (min-width: 55em) {
             body.theme-${theme} li.day-overview, body.theme-${theme} li.period-breakdown {
                 background-color: ${t['desktop']['tile-color']};
@@ -152,6 +159,7 @@ const summarizeRecords = (records) => {
 };
 
 const populateView = (data) => {
+    dayExpansionStates = getDayExpansionStates();
     document.getElementById('search').value = '';
     document.activeElement.blur();
     let status = document.getElementById('search-status');
@@ -165,6 +173,12 @@ const populateView = (data) => {
     let content = '';
     let overview = document.getElementById('overview-container');
 
+    if(units === 'metric') { // convert wind speed from m/s to km/h
+        for(let index = 0; index < data.list.length; index++) {
+            data.list[index].wind.speed *= 3600/1000; // 3600 s/1 h * 1 km/1000 m
+        }
+    }
+
     let counter = 0;
     for (let index = days.today; counter === 0 || index != days.today; index = (index + 1) % 7) {
         let records = days[index];
@@ -177,7 +191,7 @@ const populateView = (data) => {
         let mainRecord = summarizeRecords(daytimeRecords) || days[index][0];
         content += `
                 <li class="day-overview">
-                    <input type="checkbox" id="day${counter}" class="hidden" />
+                    <input type="checkbox" id="day${counter}" class="hidden day-expansion" />
                     <label for="day${counter}" class="day-overview">
                         <span class="relative-day">${todayTomorrowDayName}</span>
                         <span class="weather-data">
@@ -185,8 +199,8 @@ const populateView = (data) => {
                                 <span class="condition-caption">${mainRecord.weather[0].main}</span>
                             </span>
                             <span class="temp-wind-container">
-                                <span class="temp">${Math.round(mainRecord.main.temp)}&nbsp;&deg;F</span>
-                                <span class="wind">${Math.round(mainRecord.wind.speed)}&nbsp;mi/h</span>
+                                <span class="temp">${Math.round(mainRecord.main.temp)}&nbsp;${getTempUnit(units)}</span>
+                                <span class="wind">${Math.round(mainRecord.wind.speed)}&nbsp;${getSpeedUnit(units)}</span>
                             </span>
                         </span>
                     </label>
@@ -203,8 +217,8 @@ const populateView = (data) => {
                         <span class="condition-caption">${record.weather[0].main}</span>
                     </span>
                     <span class="temp-wind-container">
-                        <span class="temp">${Math.round(record.main.temp)}&nbsp;&deg;F</span>
-                        <span class="wind">${Math.round(record.wind.speed)}&nbsp;mi/h&nbsp;${convertAzimuthToCardinal(record.wind.deg, wind_precision)}</span>
+                        <span class="temp">${Math.round(record.main.temp)}&nbsp;${getTempUnit(units)}</span>
+                        <span class="wind">${Math.round(record.wind.speed)}&nbsp;${getSpeedUnit(units)}&nbsp;${convertAzimuthToCardinal(record.wind.deg, default_wind_precision)}</span>
                     </span>
                 </span>
             </li>`;
@@ -215,9 +229,11 @@ const populateView = (data) => {
 
     let theme = determineOptimalTheme(data.list);
     applyTheme(theme);
+    if(dayExpansionStates) setDayExpansionStates(dayExpansionStates);
 };
 
 const search = (query) => {
+    lastQuery = query;
     console.log('Requesting weather for ' + query);
     if (query == 'q=undefined' || query == 'q=' || query == '' || query == 'q=null' || !query) {
         document.getElementById('search-status').innerHTML = '';
@@ -259,7 +275,15 @@ const reloadInPlace = () => {
 document.addEventListener('DOMContentLoaded', (evt) => {
     populateThemes();
     applyTheme('unimplemented');
-    let initialQuery = Object.assign({}, { q: sample_query }, parseGETArguments(location.search)).q;
+    document.getElementById('imperial').addEventListener('change', () => {units = 'imperial'; reloadInPlace();});
+    document.getElementById('metric'  ).addEventListener('change', () => {units = 'metric'  ; reloadInPlace();});
+    document.getElementById('si'      ).addEventListener('change', () => {units = 'si'      ; reloadInPlace();});
+    let initialValues = Object.assign({}, { q: lastQuery, u: units }, parseGETArguments(location.search));
+    let initialQuery = initialValues.q;
+    let initialUnits = initialValues.u.toLocaleLowerCase();
+    let unitElement = document.getElementById(initialUnits) || document.getElementById('imperial');
+    unitElement.checked = true;
+    units = unitElement.value;
     search(detectQueryType(initialQuery));
     document.getElementById('search').addEventListener('keypress', (evt) => {
         if (evt.key === "Enter") searchFromBox(evt);

@@ -12,8 +12,13 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#dddddd33"
+        },
+        "unit-selector": {
+            "selected": "#dddddd33",
+            "hover": "#dddddd44"
         }
     },
+
     "clear-day": {
         "color": "#202020ff",
         "background": {
@@ -27,6 +32,10 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#dddddd33"
+        },
+        "unit-selector": {
+            "selected": "#dddddd33",
+            "hover": "#dddddd44"
         }
     },
     "clear-night": {
@@ -42,8 +51,13 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#55555533"
+        },
+        "unit-selector": {
+            "selected": "#55555533",
+            "hover": "#55555544"
         }
     },
+
     "rain": {
         "color": "#202020ff",
         "background": {
@@ -57,6 +71,10 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#dddde844"
+        },
+        "unit-selector": {
+            "selected": "#dddde844",
+            "hover": "#dddde855"
         }
     },
     "drizzle": {
@@ -72,8 +90,13 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#dddde333"
+        },
+        "unit-selector": {
+            "selected": "#dddde333",
+            "hover": "#dddde344"
         }
     },
+
     "snow": {
         "color": "#202020ff",
         "background": {
@@ -87,8 +110,13 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#ccccd499"
+        },
+        "unit-selector": {
+            "selected": "#ccccd499",
+            "hover": "#ccccd4AA"
         }
     },
+
     "thunderstorm": {
         "color": "#e0e0e0ff",
         "background": {
@@ -102,8 +130,13 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#dddddd1a"
+        },
+        "unit-selector": {
+            "selected": "#dddddd1a",
+            "hover": "#dddddd2b"
         }
     },
+
     "unimplemented": {
         "color": "#202020ff",
         "background": {
@@ -117,6 +150,10 @@ const themes = {
         },
         "desktop": {
             "tile-color": "#eeeeee27"
+        },
+        "unit-selector": {
+            "selected": "#eeeeee27",
+            "hover": "#eeeeee38"
         }
     }
 };

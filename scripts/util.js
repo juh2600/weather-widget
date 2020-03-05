@@ -219,3 +219,37 @@ const parseGETArguments = (str) => {
     }
     return out;
 }
+
+const getSpeedUnit = (units) => {
+    switch(units) {
+        case 'imperial': return 'mi/h';
+        case 'metric': return 'km/h';
+        case 'si':
+        default: return 'm/s';
+    }
+};
+
+const getTempUnit = (units) => {
+    switch(units) {
+        case 'imperial': return '&deg;F';
+        case 'metric': return '&deg;C';
+        case 'si':
+        default: return 'K';
+    }
+};
+
+const getDayExpansionStates = () => {
+    let boxes = document.getElementsByClassName('day-expansion');
+    let states = [];
+    for(let i = 0; i < boxes.length; i++) {
+        states[i] = boxes[i].checked;
+    }
+    return states;
+};
+
+const setDayExpansionStates = (states) => {
+    let boxes = document.getElementsByClassName('day-expansion');
+    for(let i = 0; i < boxes.length; i++) {
+        boxes[i].checked = states[i];
+    }
+};
