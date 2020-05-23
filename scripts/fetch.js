@@ -109,6 +109,8 @@ const applyTheme = (theme) => {
 	}
 	if (!themes[theme]) theme = 'unimplemented';
 	body.classList.add(`theme-${theme}`);
+	if (themes[theme].mobile && themes[theme].mobile['status-bar'])
+		document.getElementById('mobile-status-bar-color').content = themes[theme].mobile['status-bar'];
 };
 
 const summarizeRecords = (records) => {

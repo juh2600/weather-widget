@@ -13,6 +13,9 @@ const themes = {
 		"desktop": {
 			"tile-color": "#dddddd33"
 		},
+		"mobile": {
+			"status-bar": "#a9a9ba"
+		},
 		"unit-selector": {
 			"selected": "#dddddd33",
 			"hover": "#dddddd44"
@@ -33,6 +36,9 @@ const themes = {
 		"desktop": {
 			"tile-color": "#dddddd33"
 		},
+		"mobile": {
+			"status-bar": "#86ceeb"
+		},
 		"unit-selector": {
 			"selected": "#dddddd33",
 			"hover": "#dddddd44"
@@ -51,6 +57,9 @@ const themes = {
 		},
 		"desktop": {
 			"tile-color": "#55555533"
+		},
+		"mobile": {
+			"status-bar": "#2f3133"
 		},
 		"unit-selector": {
 			"selected": "#55555533",
@@ -72,6 +81,9 @@ const themes = {
 		"desktop": {
 			"tile-color": "#dddde844"
 		},
+		"mobile": {
+			"status-bar": "#a7a8b9"
+		},
 		"unit-selector": {
 			"selected": "#dddde844",
 			"hover": "#dddde855"
@@ -90,6 +102,9 @@ const themes = {
 		},
 		"desktop": {
 			"tile-color": "#dddde333"
+		},
+		"mobile": {
+			"status-bar": "#a0a0b0"
 		},
 		"unit-selector": {
 			"selected": "#dddde333",
@@ -111,6 +126,9 @@ const themes = {
 		"desktop": {
 			"tile-color": "#ccccd499"
 		},
+		"mobile": {
+			"status-bar": "#e4e4e6"
+		},
 		"unit-selector": {
 			"selected": "#ccccd499",
 			"hover": "#ccccd4AA"
@@ -131,6 +149,9 @@ const themes = {
 		"desktop": {
 			"tile-color": "#dddddd1a"
 		},
+		"mobile": {
+			"status-bar": "#101010"
+		},
 		"unit-selector": {
 			"selected": "#dddddd1a",
 			"hover": "#dddddd2b"
@@ -150,6 +171,9 @@ const themes = {
 		},
 		"desktop": {
 			"tile-color": "#eeeeee27"
+		},
+		"mobile": {
+			"status-bar": "#a0a0a0"
 		},
 		"unit-selector": {
 			"selected": "#eeeeee27",
