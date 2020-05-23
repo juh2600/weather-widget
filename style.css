@@ -1,556 +1,556 @@
 ul.plain, ol.plain {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 a.plain {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .reset-font-size {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 /*************/
 
 html, body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-    width: 100vw;
-    height: 100vh;
+	width: 100vw;
+	height: 100vh;
 }
 
 body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background-size: cover;
-    background-position: center;
-    color: #202020;
+	width: 100%;
+	height: 100%;
+	font-family: 'Arial', sans-serif;
+	background-size: cover;
+	background-position: center;
+	color: #202020;
 }
 
 main {
-    width: 100%;
-    height: 100%;
-    padding: 0.25em;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 0.25em;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
 }
 
 main > * {
-    display: block;
-    box-sizing: border-box;
+	display: block;
+	box-sizing: border-box;
 }
 
 #search-container {
-    width: 100%;
-    border: 0.15em solid;
-    border-image: linear-gradient(to right, #999999aa, transparent) 1;
-    background: none;
-    display: flex;
-    flex-direction: row;
+	width: 100%;
+	border: 0.15em solid;
+	border-image: linear-gradient(to right, #999999aa, transparent) 1;
+	background: none;
+	display: flex;
+	flex-direction: row;
 }
 
 #search {
-    flex: 1;
-    height: 100%;
-    padding: 0.5em;
-    box-sizing: border-box;
-    background: none;
-    border: none;
+	flex: 1;
+	height: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	background: none;
+	border: none;
 }
 #search::placeholder {
-    color: #888888cc;
+	color: #888888cc;
 }
 
 #search:focus {
-    outline-width: 0;
+	outline-width: 0;
 }
 #search, #search-status {
-    font-size: 0.85em;
+	font-size: 0.85em;
 }
 #search-status {
-    max-width: fit-content;
-    display: inline-block;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0.5em;
+	max-width: fit-content;
+	display: inline-block;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 0.5em;
 }
 
 #search-status.error {
-    /* background-image: linear-gradient(to right, transparent 0, #ff919188 60%); */
-    color: #aa0000;
+	/* background-image: linear-gradient(to right, transparent 0, #ff919188 60%); */
+	color: #aa0000;
 }
 
 #content {
-    flex: 1;
-    /* scroll puts the scrollbar there at all times */
-    /* overflow-y: scroll; */
-    /* so don't do that */
-    overflow-x: hidden;
-    padding: 0.5em;
+	flex: 1;
+	/* scroll puts the scrollbar there at all times */
+	/* overflow-y: scroll; */
+	/* so don't do that */
+	overflow-x: hidden;
+	padding: 0.5em;
 }
 
 #top-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 h1#parsed-query-pretty {
-    font-weight: normal;
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 0.5em;
+	font-weight: normal;
+	font-size: 1.5em;
+	margin-top: 0;
+	margin-bottom: 0.5em;
 }
 
 #unit-selector {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 0;
 }
 
 input[type="radio"][name="unit-type"] {
-    display: none;
+	display: none;
 }
 
 input[type="radio"] + label {
-    padding: 0.35em;
-    user-select: none;
+	padding: 0.35em;
+	user-select: none;
 }
 
 #overview-container {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 li.day-overview {
-    flex: 1;
-    display: block;
-    /* border: 0.5px dashed black; */
+	flex: 1;
+	display: block;
+	/* border: 0.5px dashed black; */
 }
 
 li.day-overview > label.day-overview {
-    /* padding: 0.5em 0.25em; */
-    padding: 0.5em 0;
-    cursor: pointer;
+	/* padding: 0.5em 0.25em; */
+	padding: 0.5em 0;
+	cursor: pointer;
 }
 
 label.day-overview, li.period-breakdown {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 #overview-container > li.day-overview input[type="checkbox"]:not(:checked) + label + ul.day-breakdown {
-    height: 0;
-    display: none;
+	height: 0;
+	display: none;
 }
 
 span.weather-data {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: left;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex: 1;
+	justify-content: left;
 }
 
 li.period-breakdown {
-    padding: 0.25em 0;
-    margin-left: 3.25rem;
-    font-size: 0.95em;
-    border-left: 0.5px dotted grey;
+	padding: 0.25em 0;
+	margin-left: 3.25rem;
+	font-size: 0.95em;
+	border-left: 0.5px dotted grey;
 }
 
 label.day-overview > span.relative-day, li.period-breakdown > span.time {
-    display: inline-block;
-    width: 6rem;
-    padding-right: 0.5rem;
-    text-align: right;
+	display: inline-block;
+	width: 6rem;
+	padding-right: 0.5rem;
+	text-align: right;
 }
 label.day-overview > span.relative-day::after {
-    content: ':';
+	content: ':';
 }
 
 span.condition, span.temp, span.wind {
-    display: inline-block;
-    flex: 1;
-    padding: 0 0 0 0.55rem;
-    position: relative;
-    min-width: fit-content;
+	display: inline-block;
+	flex: 1;
+	padding: 0 0 0 0.55rem;
+	position: relative;
+	min-width: fit-content;
 }
 
 span.time {
-    max-width: 2.75rem;
+	max-width: 2.75rem;
 }
 
 span.condition {
-    flex-basis: 100%;
+	flex-basis: 100%;
 }
 
 span.temp {
-    flex: 0.6;
+	flex: 0.6;
 }
 
 span.wind {
-    flex: 1.4;
+	flex: 1.4;
 }
 
 span.condition > span.condition-caption {
-    margin-left: 1.2rem;
+	margin-left: 1.2rem;
 }
 
 /* icons lol */
 .icon {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .sun {
-    position: absolute;
-    width: 1em;
-    height: 1em;
+	position: absolute;
+	width: 1em;
+	height: 1em;
 }
 .sun>* {
-    background-color: #ffdd00;
+	background-color: #ffdd00;
 }
 
 .sun.center {
-    position: absolute;
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    margin: 0.25em;
+	position: absolute;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 50%;
+	margin: 0.25em;
 }
 
 .sun.spoke {
-    position: absolute;
-    width: 0.35em;
-    height: 0.1em;
-    top: 0.2em;
-    left: -0.1em;
-    transform-origin: right;
+	position: absolute;
+	width: 0.35em;
+	height: 0.1em;
+	top: 0.2em;
+	left: -0.1em;
+	transform-origin: right;
 }
 
 .sun.spoke.zero {
-    transform: rotate(0deg) translateX(0.5em);
+	transform: rotate(0deg) translateX(0.5em);
 }
 
 .sun.spoke.one {
-    transform: rotate(45deg) translateX(0.5em);
+	transform: rotate(45deg) translateX(0.5em);
 }
 
 .sun.spoke.two {
-    transform: rotate(90deg) translateX(0.5em);
+	transform: rotate(90deg) translateX(0.5em);
 }
 
 .sun.spoke.three {
-    transform: rotate(135deg) translateX(0.5em);
+	transform: rotate(135deg) translateX(0.5em);
 }
 
 .sun.spoke.four {
-    transform: rotate(180deg) translateX(0.5em);
+	transform: rotate(180deg) translateX(0.5em);
 }
 
 .sun.spoke.five {
-    transform: rotate(225deg) translateX(0.5em);
+	transform: rotate(225deg) translateX(0.5em);
 }
 
 .sun.spoke.six {
-    transform: rotate(270deg) translateX(0.5em);
+	transform: rotate(270deg) translateX(0.5em);
 }
 
 .sun.spoke.seven {
-    transform: rotate(315deg) translateX(0.5em);
+	transform: rotate(315deg) translateX(0.5em);
 }
 
 .moon.center {
-    background-color: #999999;
-    position: absolute;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
+	background-color: #999999;
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
 }
 
 .moon.dot {
-    background-color: #666666;
-    border-radius: 50%;
-    position: absolute;
+	background-color: #666666;
+	border-radius: 50%;
+	position: absolute;
 }
 
 .moon.dot.one {
-    width: 0.2em;
-    height: 0.2em;
-    top: 0.6em;
-    left: 0.25em;
+	width: 0.2em;
+	height: 0.2em;
+	top: 0.6em;
+	left: 0.25em;
 }
 
 .moon.dot.two {
-    width: 0.1em;
-    height: 0.1em;
-    top: 0.45em;
-    left: 0.6em;
+	width: 0.1em;
+	height: 0.1em;
+	top: 0.45em;
+	left: 0.6em;
 }
 
 .moon.dot.three {
-    width: 0.15em;
-    height: 0.15em;
-    top: 0.25em;
-    left: 0.25em;
+	width: 0.15em;
+	height: 0.15em;
+	top: 0.25em;
+	left: 0.25em;
 }
 
 .cloud {
-    width: 1em;
-    height: 1em;
-    position: absolute;
+	width: 1em;
+	height: 1em;
+	position: absolute;
 }
 
 .cloud>* {
-    background-color: #777777;
+	background-color: #777777;
 }
 
 .cloud.base {
-    position: absolute;
-    width: 1em;
-    height: 0.4em;
-    bottom: 0.3em;
-    border-top-left-radius: 0.25em;
-    border-top-right-radius: 0.3em;
+	position: absolute;
+	width: 1em;
+	height: 0.4em;
+	bottom: 0.3em;
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.3em;
 }
 
 .cloud.hump {
-    position: absolute;
+	position: absolute;
 }
 
 .cloud.hump.one {
-    width: 0.5em;
-    height: 0.4em;
-    border-radius: 50%;
-    top: 0.25em;
-    right: 0.15em;
+	width: 0.5em;
+	height: 0.4em;
+	border-radius: 50%;
+	top: 0.25em;
+	right: 0.15em;
 }
 
 .cloud.hump.two {
-    width: 0.5em;
-    height: 0.4em;
-    border-top-left-radius: 0.25em;
-    border-top-right-radius: 0.2em;
-    top: 0.075em;
-    left: 0.15em;
+	width: 0.5em;
+	height: 0.4em;
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.2em;
+	top: 0.075em;
+	left: 0.15em;
 }
 
 .raindrop {
-    width: 0.2em;
-    height: 0.2em;
-    background-color: #0091ff;
-    position: absolute;
-    bottom: 0.05em;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-top-right-radius: 50%;
+	width: 0.2em;
+	height: 0.2em;
+	background-color: #0091ff;
+	position: absolute;
+	bottom: 0.05em;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-top-right-radius: 50%;
 }
 
 .raindrop.one {
-    left: 0.1em;
+	left: 0.1em;
 }
 
 .raindrop.two {
-    left: 0.4em;
+	left: 0.4em;
 }
 
 .raindrop.three {
-    left: 0.7em;
+	left: 0.7em;
 }
 
 .lightning {
-    background-color: #eeee11;
-    position: absolute;
+	background-color: #eeee11;
+	position: absolute;
 }
 
 .lightning.zigzag {
-    width: 0.2em;
-    height: 0.305em;
-    top: 0.695em;
-    left: 0.365em;
-    clip-path: polygon(0% 0%, 35% 40%, 10% 40%, 100% 100%, 70% 40%, 95% 40%, 70% 0%);
+	width: 0.2em;
+	height: 0.305em;
+	top: 0.695em;
+	left: 0.365em;
+	clip-path: polygon(0% 0%, 35% 40%, 10% 40%, 100% 100%, 70% 40%, 95% 40%, 70% 0%);
 }
 
 .snowflake {
-    background-color: #aaddff;
-    width: 0.2em;
-    height: 0.2em;
-    position: absolute;
-    border-radius: 50%;
-    bottom: 0.05em;
+	background-color: #aaddff;
+	width: 0.2em;
+	height: 0.2em;
+	position: absolute;
+	border-radius: 50%;
+	bottom: 0.05em;
 }
 
 .snowflake.one {
-    left: 0.075em;
+	left: 0.075em;
 }
 
 .snowflake.two {
-    left: 0.375em;
+	left: 0.375em;
 }
 
 .snowflake.three {
-    left: 0.675em;
+	left: 0.675em;
 }
 
 /* Mobile, but wide enough to display data on one line */
 @media all and (min-width: 25em) {
-    span.condition {
-        flex-basis: inherit;
-    }
+	span.condition {
+		flex-basis: inherit;
+	}
 }
 
 /* Desktop */
 @media all and (min-width: 55em) {
-    ul#overview-container {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    li.day-overview {
-        margin: 0.25em;
-        text-align: center;
-        background: #dddddd33;
-        position: relative;
-        width: 9em;
-    }
-    label.day-overview {
-        display: inline-flex;
-        flex-direction: column;
-        /* max-width: 9em; */
-        width: 100%;
-    }
-    label.day-overview > span.relative-day, label.day-overview > span.weather-data {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-        text-align: center;
-    }
-    label.day-overview > span.relative-day {
-        margin-bottom: 0.25em;
-    }
-    label.day-overview > span.relative-day::after {
-        content: '';
-    }
-    label.day-overview > span.weather-data > span.condition {
-        display: flex;
-        flex-direction: column;
-        min-width: unset;
-    }
-    label.day-overview > span.weather-data > span.condition > div.icon-container {
-        height: 1em;
-        font-size: 3em;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 0.125em;
-    }
-    label.day-overview > span.weather-data > span.condition > div.icon-container > div.icon {
-        width: 1em;
-        height: 1em;
-        position: relative;
-    }
-    label.day-overview > span.weather-data > span.condition > span.condition-caption {
-        margin: 0;
-        bottom: 0;
-        display: block;
-        width: 100%;
-    }
-    label.day-overview span.condition, label.day-overview span.temp, label.day-overview span.wind {
-        text-align: center;
-        max-width: unset;
-        margin: 0;
-    }
-    label.day-overview span.temp-wind-container {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0;
-        flex-basis: unset;
-        width: 100%;
-    }
-    ul.day-breakdown {
-        position: absolute;
-        width: 100%;
-    }
-    li.period-breakdown {
-        margin-left: 0;
-        border-left: none;
-        border-top: 0.5px dotted grey;
-        background: #dddddd33;
-        padding: 0.5em 0.3em;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
-    li.period-breakdown span.temp-wind-container {
-        padding-left: 0.15em;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        /* flex-basis: 60%; */
-        /* width: 8em; */
-        width: unset;
-    }
-    li.period-breakdown span.temp, li.period-breakdown span.wind {
-        margin: 0 0.3em;
-        flex-grow: 0;
-    }
-    li.period-breakdown span.condition {
-        min-width: 8em;
-        max-width: unset;
-        text-align: left;
-    }
-    li.period-breakdown span.condition-caption {
-        min-width: 7em;
-        display: inline-block;
-    }
-    li.period-breakdown span.temp {
-        text-align: right;
-        max-width: unset;
-        min-width: 3em;
-    }
-    li.period-breakdown span.wind {
-        text-align: left;
-        min-width: 5em;
-    }
-    span.condition, span.temp, span.wind {
-        padding: 0;
-    }
+	ul#overview-container {
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	li.day-overview {
+		margin: 0.25em;
+		text-align: center;
+		background: #dddddd33;
+		position: relative;
+		width: 9em;
+	}
+	label.day-overview {
+		display: inline-flex;
+		flex-direction: column;
+		/* max-width: 9em; */
+		width: 100%;
+	}
+	label.day-overview > span.relative-day, label.day-overview > span.weather-data {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 0;
+		text-align: center;
+	}
+	label.day-overview > span.relative-day {
+		margin-bottom: 0.25em;
+	}
+	label.day-overview > span.relative-day::after {
+		content: '';
+	}
+	label.day-overview > span.weather-data > span.condition {
+		display: flex;
+		flex-direction: column;
+		min-width: unset;
+	}
+	label.day-overview > span.weather-data > span.condition > div.icon-container {
+		height: 1em;
+		font-size: 3em;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 0.125em;
+	}
+	label.day-overview > span.weather-data > span.condition > div.icon-container > div.icon {
+		width: 1em;
+		height: 1em;
+		position: relative;
+	}
+	label.day-overview > span.weather-data > span.condition > span.condition-caption {
+		margin: 0;
+		bottom: 0;
+		display: block;
+		width: 100%;
+	}
+	label.day-overview span.condition, label.day-overview span.temp, label.day-overview span.wind {
+		text-align: center;
+		max-width: unset;
+		margin: 0;
+	}
+	label.day-overview span.temp-wind-container {
+		display: flex;
+		flex-direction: column;
+		padding-left: 0;
+		flex-basis: unset;
+		width: 100%;
+	}
+	ul.day-breakdown {
+		position: absolute;
+		width: 100%;
+	}
+	li.period-breakdown {
+		margin-left: 0;
+		border-left: none;
+		border-top: 0.5px dotted grey;
+		background: #dddddd33;
+		padding: 0.5em 0.3em;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	li.period-breakdown span.temp-wind-container {
+		padding-left: 0.15em;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		/* flex-basis: 60%; */
+		/* width: 8em; */
+		width: unset;
+	}
+	li.period-breakdown span.temp, li.period-breakdown span.wind {
+		margin: 0 0.3em;
+		flex-grow: 0;
+	}
+	li.period-breakdown span.condition {
+		min-width: 8em;
+		max-width: unset;
+		text-align: left;
+	}
+	li.period-breakdown span.condition-caption {
+		min-width: 7em;
+		display: inline-block;
+	}
+	li.period-breakdown span.temp {
+		text-align: right;
+		max-width: unset;
+		min-width: 3em;
+	}
+	li.period-breakdown span.wind {
+		text-align: left;
+		min-width: 5em;
+	}
+	span.condition, span.temp, span.wind {
+		padding: 0;
+	}
 }
 span.temp-wind-container {
-    padding-left: 0.15rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 9rem;
+	padding-left: 0.15rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 9rem;
 }
 span.temp, span.wind {
-    flex-grow: 0;
+	flex-grow: 0;
 }
 span.condition {
-    text-align: left;
-    min-width: 10rem;
-    max-width: 10rem;
+	text-align: left;
+	min-width: 10rem;
+	max-width: 10rem;
 }
 span.temp {
-    flex: 0.3;
-    max-width: 3rem;
-    text-align: right;
+	flex: 0.3;
+	max-width: 3rem;
+	text-align: right;
 }
 span.wind {
-    flex: 0.6;
-    text-align: left;
+	flex: 0.6;
+	text-align: left;
 }
