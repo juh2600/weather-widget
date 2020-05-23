@@ -170,7 +170,7 @@ const populateView = (data) => {
 	status.innerHTML = '';
 	status.classList.remove('error');
 	document.getElementsByTagName('title')[0].innerHTML = `Weather: ${data.city.name}`;
-	document.getElementById('parsed-query-pretty').innerHTML = `<a class="plain" href="https://google.com/maps/@${data.city.coord.lat},${data.city.coord.lon},9z" target="_blank">${data.city.name}, ${data.city.country}</a>`;
+	document.getElementById('parsed-query-pretty').innerHTML = `<a class="plain" href="https://google.com/maps/@${data.city.coord.lat},${data.city.coord.lon},9z" target="_blank">${data.city.name}${data.city.country?', '+data.city.country:''}</a>`;
 
 	let days = partitionDates(data);
 
