@@ -8,7 +8,7 @@
 				"sizes": "400x400"
 			}
 		],
-    "start_url": "/dashboard.html",
+    "start_url": "/index.html",
     "display": "standalone",
     "orientation": "portrait"
 }
