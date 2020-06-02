@@ -1,4 +1,4 @@
-const api_base = 'http://api.openweathermap.org/data/2.5';
+const api_base = 'https://api.openweathermap.org/data/2.5';
 let units = 'imperial';
 
 let lastQuery = 'Salt Lake City';
