@@ -1,7 +1,13 @@
 {
     "short_name": "Weather",
     "name": "Weather",
-    "icons": [],
+    "icons": [
+			{
+				"src": "https://www.wistv.com/pb/resources/images/weather/weather-condition-icons/400x400/67_daily_forecast.png",
+				"type": "image/png",
+				"sizes": "400x400"
+			}
+		],
     "start_url": "/dashboard.html",
     "display": "standalone",
     "orientation": "portrait"
