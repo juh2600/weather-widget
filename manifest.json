@@ -1,6 +1,6 @@
 {
-    "short_name": "Transition",
-    "name": "Transition Organizer",
+    "short_name": "Weather",
+    "name": "Weather",
     "icons": [],
     "start_url": "/dashboard.html",
     "display": "standalone",
