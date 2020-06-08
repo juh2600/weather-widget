@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		title Weather
+		block links
+			link(href="style.css", rel="stylesheet", type="text/css")
+			link(href="images/icon.png", rel="icon")
+			link(href="https://www.wistv.com/pb/resources/images/weather/weather-condition-icons/400x400/67_daily_forecast.png", rel="icon")
+			link(href="/manifest.json", rel="manifest")
+		block scripts
+			script(defer, src="scripts/secrets.js")
+			script(defer, src="scripts/icons.js")
+			script(defer, src="scripts/themes.js")
+			script(defer, src="scripts/util.js")
+			script(defer, src="scripts/fetch.js")
+		block meta
+			meta(name="viewport", content="width=device-width")
+			meta(name="apple-mobile-web-app-capable", content="yes")
+			meta(name="mobile-web-app-capable", content="yes")
+			meta(name="theme-color", content="", id="mobile-status-bar-color")
+	body
+		main
+			div#search-container
+				input#search(name="query", placeholder="Search", type="text", autocomplete="off")
+				span#search-status Loading...
+			section#content
+				div#top-bar
+					h1#parsed-query-pretty
+					div#unit-selector
+						input#imperial(name="unit-type", value="imperial", type="radio")
+						label(for="imperial") Imperial
+						input#metric(name="unit-type", value="metric", type="radio")
+						label(for="metric") Metric
+						input#si(name="unit-type", value="si", type="radio")
+						label(for="si") SI
+				ul#overview-container.plain

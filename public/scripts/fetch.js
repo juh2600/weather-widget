@@ -16,7 +16,10 @@ const buildForecastRequest = (query) => {
 };
 
 const fetchData = (url, callback) => {
-	fetch(url)
+	let headers = {
+		"Accept-Encoding": "*"
+	};
+	fetch(url, headers)
 		.then(response => response.json())
 		.then(data => {
 			if (~~(data.cod) >= 400) throw data;
