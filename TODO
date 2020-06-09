@@ -1,7 +1,8 @@
-API Caching
-Switch to Dark Sky
-Abstract API
-Add NWS alerts
+TODO
+Cause selecting a different unit to reload data
+Resize images
+Port icons to SVG, eliminate icons.css
+Reimplement theme selection algorithm
 
 DONE
 Set up mobile layout
@@ -20,4 +21,5 @@ Implement functionality to swap styles for optimal background
 Improve daily summary data
 Fix...times (local time in displayed city, not computer's location)
 Add backup URLs so images don't break if local copies are missing
+Comment out backup URLs because they cause extended load times
 Check browser compatability in Chrome and Firefox

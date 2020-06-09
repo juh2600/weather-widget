@@ -6,6 +6,7 @@ const logger = require('logger').get('main');
 const express = require('express');
 const path = require('path');
 const config = require(require('app-root-path')+'/.env');
+const cache_config = require('./cache_config');
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(serveStatic(__dirname+'/public', {
 	acceptRanges: true,
 	cacheControl: true,
 	lastModified: true,
-	maxAge: '5m'
+	maxAge: cache_config.ttl
 }));
 
 app.set('view engine', 'pug');

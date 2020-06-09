@@ -37,13 +37,15 @@ export const setUnits = (units) => {
 };
 
 export const setTheme = (name) => {
-	Object.keys(Themes).forEach(theme => {
+	Themes.names.forEach(theme => {
 		$('body').classList.remove(theme);
 	});
-	if(Themes[name] && Themes[name].constructor.name === 'Object')
+	if(Themes.themes[name])
 		$('body').classList.add(`theme-${name}`);
 	else
-		$('body').classList.add(`theme-${DEFAULT_THEME}`);
+		//$('body').classList.add(`theme-${DEFAULT_THEME}`);
+		setTheme(DEFAULT_THEME);
+	$('#mobile-status-bar-color').content = Themes.themes[name].mobile['status-bar'];
 };
 
 export const populate = (forecast) => {
@@ -62,7 +64,7 @@ export const populate = (forecast) => {
 			<span class="weather-data">
 				<span class="condition">
 					${WeatherUtil.getIcon(summary)}
-					<span class="condition-caption">Clear</span>
+					<span class="condition-caption">${summary.weather.short}</span>
 				</span>
 				<span class="temp-wind-container">
 					<span class="temp">${summary.weather.temp}&nbsp;${tempUnit}</span>

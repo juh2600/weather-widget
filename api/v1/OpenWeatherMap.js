@@ -1,5 +1,7 @@
 const logger = require('logger').get('API::OpenWeatherMap');
-const fetch = require('node-fetch');
+const cache_config = require('./cache_config');
+
+const fetch = cache_config.enabled ? require('./OpenWeatherMapCache') : require('node-fetch');
 
 const api_key = require(require('app-root-path')+'/.env').api_keys.OpenWeatherMap;
 const api_base = 'https://api.openweathermap.org/data/2.5';
