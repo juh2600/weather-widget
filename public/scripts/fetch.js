@@ -1,4 +1,4 @@
-const api_base = 'https://api.openweathermap.org/data/2.5';
+const api_base = '/api/v1/owm';
 let units = 'imperial';
 
 let lastQuery = 'Salt Lake City';
@@ -8,7 +8,7 @@ let dayExpansionStates = null;
 const default_wind_precision = 2;
 
 const buildRequest = (api_base, api_branch, query, api_key) => {
-	return `${api_base}/${api_branch}?${query}&units=${units||''}&appid=${api_key}`;
+	return `${api_base}/${api_branch}?${query}&u=${units||''}`;
 };
 
 const buildForecastRequest = (query) => {
@@ -30,7 +30,7 @@ const fetchData = (url, callback) => {
 };
 
 const handleFetchError = (err) => {
-	console.log("Error: ", err);
+	console.error("Error: ", err);
 	lastQuery = lastQueryBak;
 	if (~~(err.cod) == 404) {
 		let status = document.getElementById('search-status');

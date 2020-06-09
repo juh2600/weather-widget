@@ -4,7 +4,7 @@ const index = (req, res) => {
 	res.render('index');
 };
 
-routes = [
+const routes = [
 	{
 		'uri': '/',
 		'method': 'get',

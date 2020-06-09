@@ -4,15 +4,15 @@ html(lang="en")
 		title Weather
 		block links
 			link(href="style.css", rel="stylesheet", type="text/css")
-			link(href="images/icon.png", rel="icon")
-			link(href="https://www.wistv.com/pb/resources/images/weather/weather-condition-icons/400x400/67_daily_forecast.png", rel="icon")
+			link(href="/favicon.png", rel="icon")
 			link(href="/manifest.json", rel="manifest")
 		block scripts
-			script(defer, src="scripts/secrets.js")
-			script(defer, src="scripts/icons.js")
-			script(defer, src="scripts/themes.js")
-			script(defer, src="scripts/util.js")
-			script(defer, src="scripts/fetch.js")
+			script(type="module", src="scripts/main.js")
+			//-script(defer, src="scripts/secrets.js")
+			//-script(defer, src="scripts/icons.js")
+			//-script(defer, src="scripts/themes.js")
+			//-script(defer, src="scripts/util.js")
+			//-script(defer, src="scripts/fetch.js")
 		block meta
 			meta(name="viewport", content="width=device-width")
 			meta(name="apple-mobile-web-app-capable", content="yes")

@@ -3,7 +3,7 @@
     "name": "Weather",
     "icons": [
 			{
-				"src": "https://www.wistv.com/pb/resources/images/weather/weather-condition-icons/400x400/67_daily_forecast.png",
+				"src": "/favicon.png",
 				"type": "image/png",
 				"sizes": "400x400"
 			}
