@@ -3,16 +3,23 @@ html(lang="en")
 	head
 		title Weather
 		block links
-			link(href="style.css", rel="stylesheet", type="text/css")
+			link(href="/css/style.css", rel="preload", as="style")
+			link(href="/css/icons.css", rel="preload", as="style")
+			link(href="/scripts/modules/util.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/icons.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/weather_util.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/themes.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/view.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/logger.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/app.js", rel="modulepreload", as="script")
+			link(href="/scripts/main.js", rel="modulepreload", as="script")
+
 			link(href="/favicon.png", rel="icon")
 			link(href="/manifest.json", rel="manifest")
+			link(href="/css/style.css", rel="stylesheet", type="text/css")
+			link(href="/css/icons.css", rel="stylesheet", type="text/css")
 		block scripts
-			script(type="module", src="scripts/main.js")
-			//-script(defer, src="scripts/secrets.js")
-			//-script(defer, src="scripts/icons.js")
-			//-script(defer, src="scripts/themes.js")
-			//-script(defer, src="scripts/util.js")
-			//-script(defer, src="scripts/fetch.js")
+			script(type="module", src="/scripts/main.js")
 		block meta
 			meta(name="viewport", content="width=device-width")
 			meta(name="apple-mobile-web-app-capable", content="yes")

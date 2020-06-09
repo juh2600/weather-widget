@@ -1,14 +1,11 @@
-import * as Themes from './themes.js';
-import * as WeatherUtil from './weather_util.js';
 import * as Util from './util.js';
+import * as WeatherUtil from './weather_util.js';
 import * as View from './view.js';
 import { get as getLogger } from './logger.js';
 const logger = getLogger('app');
 
 const DEFAULT_PLACE = 'Salt Lake City';
 const DEFAULT_UNITS = 'imperial'
-// for testing
-const BROKEN_PLACE = 'sldkjl sldl sljfkd j';
 
 const sanitizePlace = (place) => {
 	place = place
@@ -132,7 +129,6 @@ const loadWeather = async (place) => {
 	place = sanitizePlace(place);
 	logger.debug(`Loading weather for ${place}`);
 	let data = await requestAllWeather(place).then(res => res.json());
-	console.log(data);
 	if(data.current.status.ok) {
 		cleanWeatherData(data);
 		displayWeather(data);
@@ -143,7 +139,7 @@ const loadWeather = async (place) => {
 
 export const init = () => {
 	logger.info('Starting Weatherboi');
+	View.init({onEnter: loadWeather});
 	View.setUnits(DEFAULT_UNITS);
 	loadWeather(DEFAULT_PLACE);
-	loadWeather(BROKEN_PLACE);
 };

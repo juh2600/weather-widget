@@ -1,5 +1,5 @@
-import * as Icons from './icons.js';
 import * as Util from './util.js';
+import * as Icons from './icons.js';
 
 export const getMostInterestingCondition = (conditions) => {
 	let best = 'clear';

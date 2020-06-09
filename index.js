@@ -13,10 +13,17 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const compression = require('compression');
 app.use(compression());
+const serveStatic = require('serve-static');
+app.use(serveStatic(__dirname+'/public', {
+	acceptRanges: true,
+	cacheControl: true,
+	lastModified: true,
+	maxAge: '5m'
+}));
 
 app.set('view engine', 'pug');
 app.set('views', __dirname+'/views');
-app.use(express.static(path.join(__dirname+'/public')));
+//app.use(express.static(path.join(__dirname+'/public')));
 
 logger.info('Configuring routes...');
 const routeManager = require('./routes/manager');

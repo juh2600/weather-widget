@@ -1,6 +1,6 @@
-import * as Themes from './themes.js';
 import * as Util from './util.js';
 import * as WeatherUtil from './weather_util.js';
+import * as Themes from './themes.js';
 const DEFAULT_THEME = 'unimplemented';
 const DEFAULT_WIND_HEADING_PRECISION = 2;
 
@@ -20,6 +20,7 @@ export const clearSearchError = () => setSearchError('');
 export const setPlace = (place) => {
 	$('#parsed-query-pretty').innerHTML = 
 		`<a class="plain" href="https://google.com/maps/@${place.coordinates.lat},${place.coordinates.long},9z" target="_blank">${place.name.long}</a>`;
+	$('title').innerHTML = `Weather: ${place.name.short}`;
 };
 
 export const getUnits = () => {
@@ -39,8 +40,10 @@ export const setTheme = (name) => {
 	Object.keys(Themes).forEach(theme => {
 		$('body').classList.remove(theme);
 	});
-	if(Themes[name]) $('body').classList.add(`theme-${name}`);
-	else $('body').classList.add(`theme-${DEFAULT_THEME}`);
+	if(Themes[name] && Themes[name].constructor.name === 'Object')
+		$('body').classList.add(`theme-${name}`);
+	else
+		$('body').classList.add(`theme-${DEFAULT_THEME}`);
 };
 
 export const populate = (forecast) => {
@@ -95,4 +98,18 @@ export const populate = (forecast) => {
 		$('#overview-container').innerHTML += overview;
 		dayIndex += 1;
 	});
+};
+
+export const init = (options) => {
+	const defaults = {
+		onEnter: console.log
+	};
+	const o = Object.assign({}, defaults, options);
+	$('input#search').addEventListener('keypress', (evt) => {
+		if(evt.key === 'Enter') {
+			o.onEnter($('input#search').value);
+			$('input#search').value = '';
+		}
+	});
+	Themes.init();
 };

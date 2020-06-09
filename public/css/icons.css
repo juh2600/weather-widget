@@ -1,0 +1,194 @@
+/* icons lol */
+.icon {
+	overflow: hidden;
+}
+
+.sun {
+	position: absolute;
+	width: 1em;
+	height: 1em;
+}
+.sun>* {
+	background-color: #ffdd00;
+}
+
+.sun.center {
+	position: absolute;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 50%;
+	margin: 0.25em;
+}
+
+.sun.spoke {
+	position: absolute;
+	width: 0.35em;
+	height: 0.1em;
+	top: 0.2em;
+	left: -0.1em;
+	transform-origin: right;
+}
+
+.sun.spoke.zero {
+	transform: rotate(0deg) translateX(0.5em);
+}
+
+.sun.spoke.one {
+	transform: rotate(45deg) translateX(0.5em);
+}
+
+.sun.spoke.two {
+	transform: rotate(90deg) translateX(0.5em);
+}
+
+.sun.spoke.three {
+	transform: rotate(135deg) translateX(0.5em);
+}
+
+.sun.spoke.four {
+	transform: rotate(180deg) translateX(0.5em);
+}
+
+.sun.spoke.five {
+	transform: rotate(225deg) translateX(0.5em);
+}
+
+.sun.spoke.six {
+	transform: rotate(270deg) translateX(0.5em);
+}
+
+.sun.spoke.seven {
+	transform: rotate(315deg) translateX(0.5em);
+}
+
+.moon.center {
+	background-color: #999999;
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+}
+
+.moon.dot {
+	background-color: #666666;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.moon.dot.one {
+	width: 0.2em;
+	height: 0.2em;
+	top: 0.6em;
+	left: 0.25em;
+}
+
+.moon.dot.two {
+	width: 0.1em;
+	height: 0.1em;
+	top: 0.45em;
+	left: 0.6em;
+}
+
+.moon.dot.three {
+	width: 0.15em;
+	height: 0.15em;
+	top: 0.25em;
+	left: 0.25em;
+}
+
+.cloud {
+	width: 1em;
+	height: 1em;
+	position: absolute;
+}
+
+.cloud>* {
+	background-color: #777777;
+}
+
+.cloud.base {
+	position: absolute;
+	width: 1em;
+	height: 0.4em;
+	bottom: 0.3em;
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.3em;
+}
+
+.cloud.hump {
+	position: absolute;
+}
+
+.cloud.hump.one {
+	width: 0.5em;
+	height: 0.4em;
+	border-radius: 50%;
+	top: 0.25em;
+	right: 0.15em;
+}
+
+.cloud.hump.two {
+	width: 0.5em;
+	height: 0.4em;
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.2em;
+	top: 0.075em;
+	left: 0.15em;
+}
+
+.raindrop {
+	width: 0.2em;
+	height: 0.2em;
+	background-color: #0091ff;
+	position: absolute;
+	bottom: 0.05em;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-top-right-radius: 50%;
+}
+
+.raindrop.one {
+	left: 0.1em;
+}
+
+.raindrop.two {
+	left: 0.4em;
+}
+
+.raindrop.three {
+	left: 0.7em;
+}
+
+.lightning {
+	background-color: #eeee11;
+	position: absolute;
+}
+
+.lightning.zigzag {
+	width: 0.2em;
+	height: 0.305em;
+	top: 0.695em;
+	left: 0.365em;
+	clip-path: polygon(0% 0%, 35% 40%, 10% 40%, 100% 100%, 70% 40%, 95% 40%, 70% 0%);
+}
+
+.snowflake {
+	background-color: #aaddff;
+	width: 0.2em;
+	height: 0.2em;
+	position: absolute;
+	border-radius: 50%;
+	bottom: 0.05em;
+}
+
+.snowflake.one {
+	left: 0.075em;
+}
+
+.snowflake.two {
+	left: 0.375em;
+}
+
+.snowflake.three {
+	left: 0.675em;
+}
