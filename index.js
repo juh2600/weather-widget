@@ -20,7 +20,7 @@ app.use(serveStatic(__dirname+'/public', {
 	cacheControl: true,
 	lastModified: true,
 	immutable: true,
-	maxAge: cache_config.ttl
+	maxAge: process.env.NODE_ENV === 'production' ? cache_config.ttl : 0
 }));
 
 app.set('view engine', 'pug');
