@@ -120,11 +120,11 @@ const process = {
 const get = {
 
 	by_query: async function(query, units='SI', window=null) {
-		query = [query];
 
 		let branch = null;
 		switch(window) {
 			case 'current':
+			case 'weather':
 				branch = 'weather';
 				break;
 			case 'forecast':
@@ -132,25 +132,27 @@ const get = {
 				break;
 		}
 
-		switch(units.toLocaleLowerCase()) {
-			case 'imperial':
-			case 'us':
-			case 'f':
-			case 'fahrenheit':
-				query.push('units=imperial');
-				break;
-			case 'metric':
-			case 'uk':
-			case 'eu':
-			case 'c':
-			case 'celsius':
-			case 'centigrade':
-				query.push('units=metric');
-				break;
-		}
-
 		if(branch) {
-			let url = `${api_base}/${branch}?${query.join('&')}&appid=${api_key}`;
+			query = [query];
+			switch(units.toLocaleLowerCase()) {
+				case 'imperial':
+				case 'us':
+				case 'f':
+				case 'fahrenheit':
+					query.push('units=imperial');
+					break;
+				case 'metric':
+				case 'uk':
+				case 'eu':
+				case 'c':
+				case 'celsius':
+				case 'centigrade':
+					query.push('units=metric');
+					break;
+			}
+			query.push(`appid=${api_key}`);
+
+			let url = `${api_base}/${branch}?${query.join('&')}`;
 			logger.debug(url);
 			return fetch(url)
 				.then(res => res.json())
