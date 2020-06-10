@@ -8,7 +8,7 @@ const api_base = 'https://api.openweathermap.org/data/2.5';
 
 const process = {
 
-	current: function(data) {
+	current: function(data, units) {
 		let out = {};
 		if(parseInt(data.cod) == 200)
 			out = {
@@ -39,7 +39,7 @@ const process = {
 					"long": data.weather[0].description,
 					"temp": data.main.temp,
 					"wind": {
-						"speed": data.wind.speed,
+						"speed": units == 'metric' ? data.wind.speed * 60 * 60 / 1000 : data.wind.speed, // convert SI's m/s to metric's km/h
 						"heading": data.wind.deg
 					},
 					"clouds": data.clouds.all,
@@ -141,6 +141,7 @@ const get = {
 				case 'f':
 				case 'fahrenheit':
 					query.push('units=imperial');
+					units = 'imperial';
 					break;
 				case 'metric':
 				case 'uk':
@@ -149,7 +150,10 @@ const get = {
 				case 'celsius':
 				case 'centigrade':
 					query.push('units=metric');
+					units = 'metric';
 					break;
+				default:
+					units = 'si';
 			}
 			query.push(`appid=${api_key}`);
 
@@ -157,7 +161,7 @@ const get = {
 			logger.debug(url);
 			return fetch(url)
 				.then(res => res.json())
-				.then(data => process[window](data));
+				.then(data => process[window](data, units));
 		} else {
 			let current  = await this.by_query(query, units, 'current');
 			let forecast = await this.by_query(query, units, 'forecast');
@@ -206,10 +210,10 @@ const get = {
 	},
 
 	by_guessing: async function(string, units='SI', window=null) {
+		if(/^-?\d+(?:.\d+)?,\s*-?\d+(?:.\d+)?$/.test(string))
+			return this.by_coordinates(...string.match(/-?\d+(?:\.\d+)?/g), units, window);
 		if(/\d{5}/.test(string))
 			return this.by_zip(string, units, window);
-		if(/^-?\d+(?:.\d+)?,-?\d+(?:.\d+)?$/.test(string))
-			return this.by_coordinates(...string.match(/-?\d+(?:\.\d+)?/g), units, window);
 		return this.by_name(string, units, window);
 	}
 };
