@@ -43,8 +43,8 @@ const process = {
 						"heading": data.wind.deg
 					},
 					"clouds": data.clouds.all,
-					"rain": data.rain ? (data.rain['1h'] || data.rain['3h']) : 0,
-					"snow": data.snow ? (data.snow['1h'] || data.snow['3h']) : 0
+					"rain": data.rain ? (data.rain['3h'] || data.rain['1h']) : 0,
+					"snow": data.snow ? (data.snow['3h'] || data.snow['1h']) : 0
 				}
 			};
 		else
