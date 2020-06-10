@@ -14,10 +14,12 @@ html(lang="en")
 			link(href="/scripts/modules/cache.js", rel="modulepreload", as="script")
 			link(href="/scripts/modules/app.js", rel="modulepreload", as="script")
 			link(href="/scripts/main.js", rel="modulepreload", as="script")
+			link(href="/css/desktop.css", rel="preload", as="style", media="screen and (min-width: 55em)")
 
 			link(href="/favicon.png", rel="icon")
 			link(href="/manifest.json", rel="manifest")
 			link(href="/css/style.css", rel="stylesheet", type="text/css")
+			link(href="/css/desktop.css", rel="stylesheet", type="text/css", media="screen and (min-width: 55em)")
 			link(href="/css/icons.css", rel="stylesheet", type="text/css")
 		block scripts
 			script(type="module", src="/scripts/main.js")

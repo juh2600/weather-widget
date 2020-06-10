@@ -221,126 +221,6 @@ span.condition > span.condition-caption {
 	}
 }
 
-/* Desktop */
-@media all and (min-width: 55em) {
-	#unit-selector input + label {
-		font-size: 1em;
-	}
-	ul#overview-container {
-		flex-direction: row;
-		justify-content: space-evenly;
-	}
-	li.day-overview {
-		margin: 0.25em;
-		text-align: center;
-		background: #dddddd33;
-		position: relative;
-		width: 9em;
-	}
-	label.day-overview {
-		display: inline-flex;
-		flex-direction: column;
-		/* max-width: 9em; */
-		width: 100%;
-	}
-	label.day-overview > span.relative-day, label.day-overview > span.weather-data {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		padding: 0;
-		text-align: center;
-	}
-	label.day-overview > span.relative-day {
-		margin-bottom: 0.25em;
-	}
-	label.day-overview > span.relative-day::after {
-		content: '';
-	}
-	label.day-overview > span.weather-data > span.condition {
-		display: flex;
-		flex-direction: column;
-		min-width: unset;
-	}
-	label.day-overview > span.weather-data > span.condition > div.icon-container {
-		height: 1em;
-		font-size: 3em;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		margin-bottom: 0.125em;
-	}
-	label.day-overview > span.weather-data > span.condition > div.icon-container > div.icon {
-		width: 1em;
-		height: 1em;
-		position: relative;
-	}
-	label.day-overview > span.weather-data > span.condition > span.condition-caption {
-		margin: 0;
-		bottom: 0;
-		display: block;
-		width: 100%;
-	}
-	label.day-overview span.condition, label.day-overview span.temp, label.day-overview span.wind {
-		text-align: center;
-		max-width: unset;
-		margin: 0;
-	}
-	label.day-overview span.temp-wind-container {
-		display: flex;
-		flex-direction: column;
-		padding-left: 0;
-		flex-basis: unset;
-		width: 100%;
-	}
-	ul.day-breakdown {
-		position: absolute;
-		width: 100%;
-	}
-	li.period-breakdown {
-		margin-left: 0;
-		border-left: none;
-		border-top: 0.5px dotted grey;
-		background: #dddddd33;
-		padding: 0.5em 0.3em;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-	}
-	li.period-breakdown span.temp-wind-container {
-		padding-left: 0.15em;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		/* flex-basis: 60%; */
-		/* width: 8em; */
-		width: unset;
-	}
-	li.period-breakdown span.temp, li.period-breakdown span.wind {
-		margin: 0 0.3em;
-		flex-grow: 0;
-	}
-	li.period-breakdown span.condition {
-		min-width: 8em;
-		max-width: unset;
-		text-align: left;
-	}
-	li.period-breakdown span.condition-caption {
-		min-width: 7em;
-		display: inline-block;
-	}
-	li.period-breakdown span.temp {
-		text-align: right;
-		max-width: unset;
-		min-width: 3em;
-	}
-	li.period-breakdown span.wind {
-		text-align: left;
-		min-width: 5em;
-	}
-	span.condition, span.temp, span.wind {
-		padding: 0;
-	}
-}
 span.temp-wind-container {
 	padding-left: 0.15rem;
 	display: flex;
@@ -348,19 +228,23 @@ span.temp-wind-container {
 	flex-wrap: wrap;
 	width: 9rem;
 }
+
 span.temp, span.wind {
 	flex-grow: 0;
 }
+
 span.condition {
 	text-align: left;
 	min-width: 10rem;
 	max-width: 10rem;
 }
+
 span.temp {
 	flex: 0.3;
 	max-width: 3rem;
 	text-align: right;
 }
+
 span.wind {
 	flex: 0.6;
 	text-align: left;
