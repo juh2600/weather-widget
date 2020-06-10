@@ -4,7 +4,7 @@ const logger = getLogger('cache');
 const CACHE_VERSION = `1`;
 const CACHE_ORIGIN  = location.origin;
 const CACHE_NAME    = `${CACHE_ORIGIN}-${CACHE_VERSION}`;
-const CACHE_TIMEOUT = 60; // s
+const CACHE_TIMEOUT = 60 * 5; // s
 
 // Attempt to fetch the given url from the cache.
 // If we don't have the url OR the response is expired:
