@@ -125,6 +125,7 @@ const get = {
 		switch(window) {
 			case 'current':
 			case 'weather':
+				window = 'current';
 				branch = 'weather';
 				break;
 			case 'forecast':
