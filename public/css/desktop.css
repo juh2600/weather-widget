@@ -17,6 +17,10 @@
 		width: 9em;
 	}
 
+	li.day-overview.skeleton {
+		height: 9.125em;
+	}
+
 	label.day-overview {
 		display: inline-flex;
 		flex-direction: column;

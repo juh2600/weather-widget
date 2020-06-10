@@ -115,6 +115,12 @@ h1#parsed-query-pretty {
 	margin-bottom: 0.5em;
 }
 
+h1#parsed-query-pretty:empty {
+	min-height: 1.75rem;
+	min-width: 8em;
+	background: #dddddd33;
+}
+
 #unit-selector {
 	display: flex;
 	flex-direction: row;
@@ -141,6 +147,12 @@ li.day-overview {
 	flex: 1;
 	display: block;
 	/* border: 0.5px dashed black; */
+}
+
+li.day-overview.skeleton {
+	min-height: 1.5em;
+	margin: 0.25em 0;
+	background: #dddddd33;
 }
 
 li.day-overview > label.day-overview {
