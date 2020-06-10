@@ -158,7 +158,6 @@ const get = {
 			query.push(`appid=${api_key}`);
 
 			let url = `${api_base}/${branch}?${query.join('&')}`;
-			logger.debug(url);
 			return fetch(url)
 				.then(res => res.json())
 				.then(data => process[window](data, units));
