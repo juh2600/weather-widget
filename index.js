@@ -27,7 +27,7 @@ app.set('view engine', 'pug');
 app.set('views', __dirname+'/views');
 //app.use(express.static(path.join(__dirname+'/public')));
 app.use((req, res, next) => {
-	logger.info(`${req.headers['x-forwarded-for'] || req.connection.remoteAddress} ${req.method.toLocaleUpperCase()} ${req.url}`);
+	logger.info(`${new Date().toISOString().replace('T', ' ').replace(/\..*Z/, 'Z')} ${req.headers['x-forwarded-for'] || req.connection.remoteAddress} ${req.method.toLocaleUpperCase()} ${req.url}`);
 	next();
 });
 
