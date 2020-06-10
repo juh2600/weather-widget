@@ -175,5 +175,5 @@ export const init = () => {
 		onSelectUnits: loadWeather
 	});
 	View.setUnits(Settings.defaults.units);
-	loadWeather(Settings.defaults.place);
+	loadWeather(Settings.defaults.place, Settings.defaults.units);
 };
