@@ -171,8 +171,9 @@ export const init = () => {
 	initSettings();
 	View.init({
 		onEnter: loadWeather,
+		onSelectUnits: loadWeather,
 		onType: Settings.cache.aggressive_prefetch ? prefetch : undefined,
-		onSelectUnits: loadWeather
+		onHoverUnits: Settings.cache.aggressive_prefetch ? prefetch : undefined
 	});
 	View.setUnits(Settings.defaults.units);
 	loadWeather(Settings.defaults.place, Settings.defaults.units);

@@ -114,7 +114,7 @@ export const populate = (forecast) => {
 
 export const getAllInput = () => {
 	return [
-		$('input#search').value || $('input#search').dataset.lastValue,
+		$('input#search').value.toLocaleLowerCase() || $('input#search').dataset.lastValue,
 		getUnits()
 	];
 };
@@ -123,12 +123,17 @@ export const savePlace = (place) => {
 	$('input#search').dataset.lastValue = place;
 };
 
+export const getLastPlace = () => {
+	return $('input#search').dataset.lastValue;
+};
+
 export const init = (options) => {
 
 	const defaults = {
 		onEnter: console.log,
+		onSelectUnits: console.log,
 		onType: () => {},
-		onSelectUnits: console.log
+		onHoverUnits: () => {}
 	};
 	const o = Object.assign({}, defaults, options);
 
@@ -145,7 +150,13 @@ export const init = (options) => {
 
 	$$('input[name=unit-type]').forEach(radio => {
 		radio.addEventListener('change', (evt) => {
-			o.onSelectUnits(...getAllInput());
+			o.onSelectUnits(getLastPlace(), getAllInput()[1]);
+		});
+	});
+
+	$$('input[name=unit-type] + label').forEach(label => {
+		label.addEventListener('mouseover', (evt) => {
+			o.onHoverUnits(getLastPlace(), $('#'+label.htmlFor).value);
 		});
 	});
 

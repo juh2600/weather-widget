@@ -26,7 +26,7 @@ export const fetch_cache = async (url, options) => {
 					|| (data.time.timestamp + CACHE_TIMEOUT)
 						< (new Date().getTime()/1000)
 			) {
-				logger.warn(`Cached response for ${url} was not found, not ok, or expired`);
+				logger.debug(`Cached response for ${url} was not found, not ok, or expired`);
 				logger.debug(`Requesting fresh response for ${url}`);
 				return fetch(url, options)
 					.then(newres => {
