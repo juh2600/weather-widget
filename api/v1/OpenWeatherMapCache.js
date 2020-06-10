@@ -14,7 +14,7 @@ module.exports = async (url) => {
 				return {json: function() {return data;}};
 			});
 	} else {
-		logger.debug(`Returning cached result for name ${url}, expiring ${record.cache.expiry}`);
+		//logger.debug(`Returning cached result for name ${url}, expiring ${record.cache.expiry}`);
 		return {json: function() {return record;}};
 	}
 };
