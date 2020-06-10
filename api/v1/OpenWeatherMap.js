@@ -156,9 +156,18 @@ const get = {
 				.then(res => res.json())
 				.then(data => process[window](data));
 		} else {
+			let current  = await this.by_query(query, units, 'current');
+			let forecast = await this.by_query(query, units, 'forecast');
+			let place = current.place;
+			let time = {
+				timestamp: parseInt(new Date().getTime()/1000),
+				timezone: current.time ? current.time.timezone : undefined
+			};
 			return {
-				current:  await this.by_query(query, units, 'current'),
-				forecast: await this.by_query(query, units, 'forecast')
+				place,
+				time,
+				current,
+				forecast
 			};
 		}
 	},
