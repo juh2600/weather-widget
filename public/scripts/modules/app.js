@@ -13,7 +13,12 @@ const Settings = {
 	cache: {
 		cache_enabled: true,
 		aggressive_prefetch: true,
-		prefetch_min_query_length: 4
+		prefetch_min_query_length: 4, // minimum length of entire query
+		prefetch_min_token_length: 2, // minimum length of the last token
+		prefetch_ignore_last_char: [' '] // ignore queries ending in these
+	},
+	reinterpret: {
+		guess_us: true
 	}
 };
 
@@ -38,11 +43,23 @@ const requestAllWeather = async (place, units) => {
 		'Accept-Encoding': '*'
 	};
 	let res = (Settings.cache.cache_enabled ? fetch_cache(uri, options) : fetch(uri, options));
-	return res.then(res => res.json());
+	let data = await res.then(res => res.json());
+	if(data.status.code === 404 && Settings.reinterpret.guess_us) {
+		let possibleState = place.split(' ').slice(-1)[0];
+		if(possibleState.length === 2 && possibleState.toLocaleLowerCase() !== 'us') {
+			return requestAllWeather(place + ' us', units);
+		}
+	}
+	return data;
 };
 
 const prefetch = async (place, units) => {
-	if(place && place.length >= Settings.cache.prefetch_min_query_length) {
+	if(
+		place
+		&& place.length >= Settings.cache.prefetch_min_query_length
+		&& !Settings.cache.prefetch_ignore_last_char.includes(place.slice(-1))
+		&& place.split(' ').slice(-1)[0].length >= Settings.cache.prefetch_min_token_length
+	) {
 		logger.debug(`Prefetching ${place} with ${units} units`);
 		requestAllWeather(place, units);
 	}
