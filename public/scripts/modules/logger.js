@@ -6,7 +6,7 @@ export const addLogLevel = (obj, level, output) => {
 	while(levelPrefix.length < LEVEL_SIZE)
 		levelPrefix += ' ';
 	obj[level] = (message) => {
-		output(`${levelPrefix}\t[ ${obj.role} ] ${message}`);
+		output(`${levelPrefix} [ ${obj.role} ] ${message}`);
 	};
 };
 
