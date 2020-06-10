@@ -50,6 +50,9 @@ const prefetch = async (place, units) => {
 
 const convertTimes = (data) => {
 	const convert = (timestamp) => new Date(1000*(timestamp));
+	if(data.time) {
+		data.time.timestamp = convert(data.time.timestamp);
+	}
 	if(data.current) {
 		data.current.time.timestamp = convert(data.current.time.timestamp);
 		data.current.time.sunrise = convert(data.current.time.sunrise);
@@ -154,12 +157,12 @@ const loadWeather = async (place, units) => {
 	place = sanitizePlace(place);
 	logger.debug(`Loading weather for ${place}`);
 	let data = await requestAllWeather(place, units);
-	if(data.current.status.ok) {
+	if(data.status.ok) {
 		cleanWeatherData(data);
 		displayWeather(data);
 		View.savePlace(`${data.place.coordinates.lat},${data.place.coordinates.long}`);
 	} else {
-		displayError(data.current.status);
+		displayError(data.status);
 	}
 };
 

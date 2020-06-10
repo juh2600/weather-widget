@@ -10,7 +10,7 @@ const fetchAllWeather = (req, res) => {
 		.get
 		.by_guessing(req.query.q, req.query.u)
 		.then(data => {
-			res.status(data.current.status.code);
+			res.status(data.status.code);
 			return data;
 		})
 		.then(data => res.json(data))

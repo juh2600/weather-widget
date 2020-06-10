@@ -1,7 +1,7 @@
 import { get as getLogger } from './logger.js';
 const logger = getLogger('cache');
 
-const CACHE_VERSION = `1`;
+const CACHE_VERSION = `2`;
 const CACHE_ORIGIN  = location.origin;
 const CACHE_NAME    = `${CACHE_ORIGIN}-${CACHE_VERSION}`;
 const CACHE_TIMEOUT = 60 * 5; // s

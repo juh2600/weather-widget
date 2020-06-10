@@ -164,13 +164,23 @@ const get = {
 				.then(data => process[window](data, units));
 		} else {
 			let current  = await this.by_query(query, units, 'current');
+			if(current.status.code >= 400) {
+				return {
+					"status": current.status,
+					"time": {
+						"timestamp": parseInt(new Date().getTime()/1000)
+					}
+				};
+			}
 			let forecast = await this.by_query(query, units, 'forecast');
+			let status = current.status;
 			let place = current.place;
 			let time = {
 				timestamp: parseInt(new Date().getTime()/1000),
 				timezone: current.time ? current.time.timezone : undefined
 			};
 			return {
+				status,
 				place,
 				time,
 				current,
