@@ -1,11 +1,14 @@
 import * as Util from './util.js';
 import * as WeatherUtil from './weather_util.js';
 import * as View from './view.js';
+import { fetch_cache } from './cache.js';
 import { get as getLogger } from './logger.js';
 const logger = getLogger('app');
 
-const DEFAULT_PLACE = 'Salt Lake City';
-const DEFAULT_UNITS = 'imperial'
+const DEFAULT_QUERY = Util.parseQueryString(location.search);
+const DEFAULT_PLACE = DEFAULT_QUERY['q'] || 'Salt Lake City';
+const DEFAULT_UNITS = DEFAULT_QUERY['u'] || 'imperial'
+const USE_CACHE = true;
 
 const sanitizePlace = (place) => {
 	place = place
@@ -21,7 +24,8 @@ const requestAllWeather = async (place) => {
 	const options = {
 		'Accept-Encoding': '*'
 	};
-	return fetch(uri, options);
+	let res = (USE_CACHE ? fetch_cache(uri, options) : fetch(uri, options));
+	return res.then(res => res.json());
 };
 
 const convertTimes = (data) => {
@@ -102,7 +106,8 @@ const partitionForecast = (current, forecast) => {
 	Object.keys(days).forEach(day => {
 		days[day].unshift(summarizeForecast(days[day]));
 	});
-	days['Today'][0] = current;
+	if(days['Today'])
+		days['Today'][0] = current;
 	return days;
 };
 
@@ -128,7 +133,7 @@ const displayError = (status) => {
 const loadWeather = async (place) => {
 	place = sanitizePlace(place);
 	logger.debug(`Loading weather for ${place}`);
-	let data = await requestAllWeather(place).then(res => res.json());
+	let data = await requestAllWeather(place);
 	if(data.current.status.ok) {
 		cleanWeatherData(data);
 		displayWeather(data);

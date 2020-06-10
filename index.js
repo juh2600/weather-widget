@@ -19,6 +19,7 @@ app.use(serveStatic(__dirname+'/public', {
 	acceptRanges: true,
 	cacheControl: true,
 	lastModified: true,
+	immutable: true,
 	maxAge: cache_config.ttl
 }));
 
