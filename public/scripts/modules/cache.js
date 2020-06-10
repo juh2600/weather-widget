@@ -22,7 +22,7 @@ export const fetch_cache = async (url, options) => {
 			if(res)
 				data = await res.clone().json();
 			if(!res
-					|| res.status !== 200
+					|| ![200, 404].includes(res.status)
 					|| (data.time.timestamp + CACHE_TIMEOUT)
 						< (new Date().getTime()/1000)
 			) {

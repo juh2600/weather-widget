@@ -5,27 +5,47 @@ import { fetch_cache } from './cache.js';
 import { get as getLogger } from './logger.js';
 const logger = getLogger('app');
 
-const DEFAULT_QUERY = Util.parseQueryString(location.search);
-const DEFAULT_PLACE = DEFAULT_QUERY['q'] || 'Salt Lake City';
-const DEFAULT_UNITS = DEFAULT_QUERY['u'] || 'imperial'
-const USE_CACHE = true;
+const Settings = {
+	defaults: {
+		place: 'Salt Lake City',
+		units: 'imperial'
+	},
+	cache: {
+		cache_enabled: true,
+		aggressive_prefetch: true,
+		prefetch_min_query_length: 4
+	}
+};
+
+const initSettings = () => {
+	let queryString = Util.parseQueryString(location.search);
+	if(queryString.q) Settings.place = queryString.q;
+	if(queryString.u) Settings.units = queryString.u;
+};
 
 const sanitizePlace = (place) => {
 	place = place
-		.replace(/[\(\)\{\}~!@#$%^&*_+<>?/:;,.\\"`]/g, ' ')
+		.replace(/[\(\)\{\}~!@#$%^&*_+<>?/:;\\"`]/g, ' ')
 		.replace(/ +/g, ' ')
 		.toLocaleLowerCase();
 	return place;
 };
 
-const requestAllWeather = async (place) => {
+const requestAllWeather = async (place, units) => {
 	logger.debug(`Requesting all weather for ${place}`);
-	const uri = `/api/v1/owm?q=${encodeURIComponent(place)}&u=${View.getUnits()}`;
+	const uri = `/api/v1/owm?q=${encodeURIComponent(place)}&u=${units}`;
 	const options = {
 		'Accept-Encoding': '*'
 	};
-	let res = (USE_CACHE ? fetch_cache(uri, options) : fetch(uri, options));
+	let res = (Settings.cache.cache_enabled ? fetch_cache(uri, options) : fetch(uri, options));
 	return res.then(res => res.json());
+};
+
+const prefetch = async (place, units) => {
+	if(place && place.length >= Settings.cache.prefetch_min_query_length) {
+		logger.debug(`Prefetching ${place} with ${units} units`);
+		requestAllWeather(place, units);
+	}
 };
 
 const convertTimes = (data) => {
@@ -130,13 +150,14 @@ const displayError = (status) => {
 	View.setSearchError(message);
 };
 
-const loadWeather = async (place) => {
+const loadWeather = async (place, units) => {
 	place = sanitizePlace(place);
 	logger.debug(`Loading weather for ${place}`);
-	let data = await requestAllWeather(place);
+	let data = await requestAllWeather(place, units);
 	if(data.current.status.ok) {
 		cleanWeatherData(data);
 		displayWeather(data);
+		View.savePlace(`${data.place.coordinates.lat},${data.place.coordinates.long}`);
 	} else {
 		displayError(data.current.status);
 	}
@@ -144,7 +165,12 @@ const loadWeather = async (place) => {
 
 export const init = () => {
 	logger.info('Starting Weatherboi');
-	View.init({onEnter: loadWeather});
-	View.setUnits(DEFAULT_UNITS);
-	loadWeather(DEFAULT_PLACE);
+	initSettings();
+	View.init({
+		onEnter: loadWeather,
+		onType: Settings.cache.aggressive_prefetch ? prefetch : undefined,
+		onSelectUnits: loadWeather
+	});
+	View.setUnits(Settings.defaults.units);
+	loadWeather(Settings.defaults.place);
 };

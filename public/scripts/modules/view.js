@@ -5,7 +5,7 @@ const DEFAULT_THEME = 'unimplemented';
 const DEFAULT_WIND_HEADING_PRECISION = 2;
 
 const $ = (selector) => document.querySelector(selector);
-const $$ = document.querySelectorAll;
+const $$ = (selector) => document.querySelectorAll(selector);
 
 export const setSearchError = (string) => {
 	$('#search-status').innerHTML = string;
@@ -49,11 +49,15 @@ export const setTheme = (name) => {
 };
 
 export const populate = (forecast) => {
+	// take note of which days the user has open
+	let expansionStates = Util.getDayExpansionStates();
+
 	$('#overview-container').innerHTML = '';
 	let dayIndex = 0;
 	const units = getUnits();
 	const tempUnit = WeatherUtil.getTempUnit(units);
 	const speedUnit = WeatherUtil.getSpeedUnit(units);
+
 	Object.keys(forecast).forEach(day => {
 		const summary = forecast[day].shift();
 		let overview = 
@@ -74,6 +78,7 @@ export const populate = (forecast) => {
 		</label>
 		<ul class="plain day-breakdown">
 `;
+
 		forecast[day].forEach(record => {
 			overview +=
 `			<li class="period-breakdown">
@@ -93,25 +98,56 @@ export const populate = (forecast) => {
 			</li>
 `;
 		});
+
 		overview += 
 `		</ul>
 	</li>
 `;
+
 		$('#overview-container').innerHTML += overview;
 		dayIndex += 1;
 	});
+
+	// restore any days the user had open before
+	Util.setDayExpansionStates(expansionStates);
+};
+
+export const getAllInput = () => {
+	return [
+		$('input#search').value || $('input#search').dataset.lastValue,
+		getUnits()
+	];
+};
+
+export const savePlace = (place) => {
+	$('input#search').dataset.lastValue = place;
 };
 
 export const init = (options) => {
+
 	const defaults = {
-		onEnter: console.log
+		onEnter: console.log,
+		onType: () => {},
+		onSelectUnits: console.log
 	};
 	const o = Object.assign({}, defaults, options);
+
 	$('input#search').addEventListener('keypress', (evt) => {
 		if(evt.key === 'Enter') {
-			o.onEnter($('input#search').value);
+			o.onEnter(...getAllInput());
 			$('input#search').value = '';
 		}
 	});
+
+	$('input#search').addEventListener('input', (evt) => {
+		o.onType(...getAllInput());
+	});
+
+	$$('input[name=unit-type]').forEach(radio => {
+		radio.addEventListener('change', (evt) => {
+			o.onSelectUnits(...getAllInput());
+		});
+	});
+
 	Themes.init();
 };
