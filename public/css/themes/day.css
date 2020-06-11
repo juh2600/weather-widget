@@ -1,0 +1,59 @@
+html.day > body
+{
+	background-image:
+		linear-gradient(to bottom, #87ceeb, transparent 120%)
+		, url('/images/day/clear-small.jpg')
+		;
+}
+
+html.day > body
+, html.day > body input
+{
+	color: #202020ff;
+}
+
+html.day #search-status.error
+{
+	color: #aa0000ff;
+}
+
+html.day #search-container
+{
+	border-image: linear-gradient(to right, #999999aa, transparent) 1;
+}
+
+html.day #search::placeholder
+{
+	color: #888888ee;
+}
+
+html.day input[type=radio]:checked + label
+{
+	background-color: #dddddd33;
+}
+
+html.day input[type=radio] + label:hover
+{
+	background-color: #dddddd44;
+}
+
+html.day meta[name=theme-color] {
+	background-color: #86ceeb;
+}
+
+@media all and (min-width: 55em)
+{
+	html.day > body
+	{
+		background-image:
+			linear-gradient(to bottom, #87ceeb, transparent 120%)
+			, url('/images/day/clear-full.jpg')
+			;
+	}
+
+	html.day li.day-overview
+	, html.day li.period-breakdown
+	{
+		background-color: #dddddd33;
+	}
+}

@@ -1,0 +1,88 @@
+html.evening > body
+{
+	background-image:
+		linear-gradient(to bottom, #39190c, #311610b3, #3b0c0894 300%)
+		, url(/images/evening/clear-full.jpg)
+		;
+	backdrop-filter: blur(5px);
+}
+
+html.evening > body
+, html.evening > body input
+{
+	color: #e0e0e0ff;
+}
+
+html.evening #search-status.error
+{
+	color: #aa0000ff;
+}
+
+html.evening #search-container
+{
+	border-image: linear-gradient(to right, #999999aa, transparent) 1;
+}
+
+html.evening #search::placeholder
+{
+	color: #888888ee;
+}
+
+html.evening input[type=radio]:checked + label
+{
+	background-color: #dddddd33;
+}
+
+html.evening input[type=radio] + label:hover
+{
+	background-color: #dddddd44;
+}
+
+html.evening meta[name=theme-color] {
+	background-color: #86ceeb;
+}
+
+html.evening li.day-overview
+{
+	background-color: #46404038;
+}
+
+@media all and (min-width: 55em)
+{
+	html.evening > body
+	{
+		background-image:
+			linear-gradient(to bottom, #39190c, #311610b3, #3b0c0894 300%)
+			, url(/images/evening/clear-full.jpg)
+			;
+    backdrop-filter: blur(5px);
+	}
+
+	html.evening li.day-overview
+	, html.evening li.period-breakdown
+	{
+		background-color: #5151515e;
+	}
+
+}
+
+/* evening clouds */
+
+html.evening.clouds > body
+{
+	background-image:
+		linear-gradient(to bottom, #39190c, #aa645517 130%)
+		, url(/images/evening/clouds-small.jpg)
+		;
+}
+
+@media all and (min-width: 55em)
+{
+	html.evening.clouds > body
+	{
+		background-image:
+			linear-gradient(to bottom, #39190c, #aa645517 130%)
+			, url(/images/evening/clouds-full.jpg)
+			;
+	}
+}

@@ -2,7 +2,7 @@ html.night > body
 {
 	background-image:
 		linear-gradient(to bottom, #333333ee, #33333399)
-		, url('/images/night/clear-small.png')
+		, url('/images/night/clear-small.jpg')
 		;
 }
 
@@ -47,7 +47,7 @@ html.night meta[name=theme-color] {
 	{
 		background-image:
 			linear-gradient(to bottom, #333333ee, #33333399)
-			, url('/images/night/clear-full.png')
+			, url('/images/night/clear-full.jpg')
 			;
 	}
 

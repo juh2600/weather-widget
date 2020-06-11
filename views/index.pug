@@ -21,16 +21,17 @@ html(lang="en")
 			link(href="/css/desktop.css", rel="preload", as="style", media=breakpoint_big)
 
 			// Themes
-			link(href="/css/themes/night.css", rel="preload", as="style")
-			link(href="/images/night/clear-small.png", rel="preload", as="image", media=breakpoint_small)
-			link(href="/images/night/clear-full.png", rel="preload", as="image", media=breakpoint_big)
-			link(disabled, href="/css/themes/night.css", rel="stylesheet", type="text/css", name="night")
+			each time in ['night', 'day', 'morning', 'evening']
+				link(href="/css/themes/"+time+".css", rel="preload", as="style")
+				link(href="/images/"+time+"/clear-small.jpg", rel="preload", as="image", media=breakpoint_small)
+				link(href="/images/"+time+"/clear-full.jpg", rel="preload", as="image", media=breakpoint_big)
+				link(disabled, href="/css/themes/"+time+".css", rel="stylesheet", type="text/css", name=time)
 
 			// Other stuff
 			link(href="/favicon.png", rel="icon")
 			link(href="/manifest.json", rel="manifest")
 			link(href="/css/style.css", rel="stylesheet", type="text/css")
-			link(href="/css/desktop.css", rel="stylesheet", type="text/css", media="screen and (min-width: 55em)")
+			link(href="/css/desktop.css", rel="stylesheet", type="text/css", media=breakpoint_big)
 			link(href="/css/icons.css", rel="stylesheet", type="text/css")
 		block scripts
 			script(type="module", src="/scripts/main.js")

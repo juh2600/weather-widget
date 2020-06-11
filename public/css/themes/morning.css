@@ -1,0 +1,64 @@
+html.morning > body
+{
+	background-image:
+		linear-gradient(to bottom, #c2def6, transparent 170%)
+		, url('/images/morning/clear-small.jpg')
+		;
+}
+
+html.morning > body
+, html.morning > body input
+{
+	color: #202020ff;
+}
+
+html.morning #search-status.error
+{
+	color: #aa0000ff;
+}
+
+html.morning #search-container
+{
+	border-image: linear-gradient(to right, #999999aa, transparent) 1;
+}
+
+html.morning #search::placeholder
+{
+	color: #888888ee;
+}
+
+html.morning input[type=radio]:checked + label
+{
+	background-color: #dddddd33;
+}
+
+html.morning input[type=radio] + label:hover
+{
+	background-color: #dddddd44;
+}
+
+html.morning meta[name=theme-color] {
+	background-color: #86ceeb;
+}
+
+html.morning li.day-overview
+{
+	background-color: #dddddd55;
+}
+
+@media all and (min-width: 55em)
+{
+	html.morning > body
+	{
+		background-image:
+			linear-gradient(to bottom, #c2def6, transparent 170%)
+			, url('/images/morning/clear-full.jpg')
+			;
+	}
+
+	html.morning li.period-breakdown
+	{
+		background-color: #dddddd55;
+	}
+
+}
