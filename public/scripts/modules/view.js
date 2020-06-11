@@ -17,6 +17,8 @@ export const setSearchError = (string) => {
 
 export const clearSearchError = () => setSearchError('');
 
+export const clearSearchBox = () => $('input#search').value = '';
+
 export const setPlace = (place) => {
 	$('#parsed-query-pretty').innerHTML = 
 		`<a class="plain" href="https://google.com/maps/@${place.coordinates.lat},${place.coordinates.long},9z" target="_blank">${place.name.long}</a>`;
@@ -140,7 +142,7 @@ export const init = (options) => {
 	$('input#search').addEventListener('keypress', (evt) => {
 		if(evt.key === 'Enter') {
 			o.onEnter(...getAllInput());
-			$('input#search').value = '';
+			clearSearchBox();
 		}
 	});
 
