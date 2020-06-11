@@ -7,7 +7,7 @@ export const capitalizeFirst = (string) => {
 };
 
 export const getDayName = (date) => {
-	switch (date.getDay()) {
+	switch (date.getUTCDay()) {
 		case 0: return 'Sunday';
 		case 1: return 'Monday';
 		case 2: return 'Tuesday';
@@ -19,9 +19,10 @@ export const getDayName = (date) => {
 	}
 };
 
+// Use UTC date
 export const getDate = (date) => {
 	if(date.constructor.name !== 'Date') date = new Date(date);
-	return new Date(date.toDateString());
+	return new Date(date.toISOString().slice(0,10));
 };
 
 /*
@@ -31,19 +32,18 @@ export const getTime = (date) => {
 };
 */
 
+// Use UTC time
 export const getReadableTime = (date) => {
-	return date.toTimeString().slice(0,5);
+	return date.toISOString().slice(11,16);
 };
 
-export const getTodayTomorrowDayName = (date) => {
+export const getTodayTomorrowDayName = (date, today) => {
 	// reset each date to midnight
 	let then = getDate(date);
-	let now = getDate(new Date());
+	let now = getDate(today);
 	let difference = (then - now) / 1000 / 60 / 60 / 24; // diff in days
-	if(difference == 0)
-		return 'Today';
-	if(difference == 1)
-		return 'Tomorrow';
+	if(difference == 0) return 'Today';
+	if(difference == 1) return 'Tomorrow';
 	return getDayName(date);
 };
 

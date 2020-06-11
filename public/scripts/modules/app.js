@@ -65,8 +65,12 @@ const prefetch = async (place, units) => {
 	}
 };
 
+// Convert unix timestamps to Date objects, and add the timezone to each.
+// After this operation, what the computer thinks is Zulu time will
+// actually be local to the weather location. Use the UTC methods on the
+// Date object after this point.
 const convertTimes = (data) => {
-	const convert = (timestamp) => new Date(1000*(timestamp));
+	const convert = (timestamp) => new Date(1000*(timestamp + data.time.timezone));
 	if(data.time) {
 		data.time.timestamp = convert(data.time.timestamp);
 	}
@@ -84,6 +88,8 @@ const convertTimes = (data) => {
 			['sunrise', 'sunset'].forEach(evt => {
 				record.time[evt] = new Date(data.forecast.time[evt]);
 				record.time[evt].setDate(record.time.timestamp.getDate());
+				record.time[evt].setMonth(record.time.timestamp.getMonth());
+				record.time[evt].setYear(record.time.timestamp.getYear());
 			});
 			record.time.daytime =
 					record.time.sunrise <= record.time.timestamp
@@ -139,7 +145,7 @@ const summarizeForecast = (forecast) => {
 const partitionForecast = (current, forecast) => {
 	const days = {};
 	forecast.weather.forEach(record => {
-		const day = Util.getTodayTomorrowDayName(record.time.timestamp);
+		const day = Util.getTodayTomorrowDayName(record.time.timestamp, current.time.timestamp);
 		if(days[day]) days[day].push(record);
 		else days[day] = [record];
 	});
