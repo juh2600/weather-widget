@@ -89,3 +89,6 @@ typings/
 .dynamodb/
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+# Google's proof of ownership challenge
+public/google*
