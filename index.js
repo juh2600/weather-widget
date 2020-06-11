@@ -3,6 +3,7 @@ console.log(`Starting ${package.name} v${package.version}`);
 process.env.NODE_ENV = 'debug';
 
 const logger = require('logger').get('main');
+const http = require('http');
 const express = require('express');
 const path = require('path');
 const config = require(require('app-root-path')+'/.env');
@@ -38,5 +39,5 @@ routeManager.apply(app, require('./routes/api/v1/owm'));
 logger.info('Configured routes.');
 
 logger.info(`Listening on port ${config.port}`);
-app.listen(config.port);
+http.createServer(app).listen(config.port);
 
