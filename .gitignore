@@ -92,3 +92,6 @@ typings/
 
 # Google's proof of ownership challenge
 public/google*
+
+# Config file for sekrits
+.env.json
