@@ -1,12 +1,12 @@
 const package = require('./package.json');
+const config = require(require('app-root-path')+'/.env');
 console.log(`Starting ${package.name} v${package.version}`);
-process.env.NODE_ENV = 'debug';
+process.env.NODE_ENV = config.deployment_mode;
 
 const logger = require('logger').get('main');
 const http = require('http');
 const express = require('express');
 const path = require('path');
-const config = require(require('app-root-path')+'/.env');
 const cache_config = require('./cache_config');
 
 const app = express();
