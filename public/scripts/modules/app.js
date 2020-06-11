@@ -24,8 +24,8 @@ const Settings = {
 
 const initSettings = () => {
 	let queryString = Util.parseQueryString(location.search);
-	if(queryString.q) Settings.place = queryString.q;
-	if(queryString.u) Settings.units = queryString.u;
+	if(queryString.q) Settings.defaults.place = queryString.q;
+	if(queryString.u) Settings.defaults.units = queryString.u;
 };
 
 const sanitizePlace = (place) => {
