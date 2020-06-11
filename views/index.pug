@@ -1,3 +1,6 @@
+- var breakpoint_big = "screen and (min-width: 55em)";
+- var breakpoint_small = "screen and (max-width: 55em)";
+
 doctype html
 html(lang="en")
 	head
@@ -12,10 +15,18 @@ html(lang="en")
 			link(href="/scripts/modules/view.js", rel="modulepreload", as="script")
 			link(href="/scripts/modules/logger.js", rel="modulepreload", as="script")
 			link(href="/scripts/modules/cache.js", rel="modulepreload", as="script")
+			link(href="/scripts/modules/theme_selector.js", rel="modulepreload", as="script")
 			link(href="/scripts/modules/app.js", rel="modulepreload", as="script")
 			link(href="/scripts/main.js", rel="modulepreload", as="script")
-			link(href="/css/desktop.css", rel="preload", as="style", media="screen and (min-width: 55em)")
+			link(href="/css/desktop.css", rel="preload", as="style", media=breakpoint_big)
 
+			// Themes
+			link(href="/css/themes/night.css", rel="preload", as="style")
+			link(href="/images/night/clear-small.png", rel="preload", as="image", media=breakpoint_small)
+			link(href="/images/night/clear-full.png", rel="preload", as="image", media=breakpoint_big)
+			link(disabled, href="/css/themes/night.css", rel="stylesheet", type="text/css", name="night")
+
+			// Other stuff
 			link(href="/favicon.png", rel="icon")
 			link(href="/manifest.json", rel="manifest")
 			link(href="/css/style.css", rel="stylesheet", type="text/css")
@@ -27,7 +38,7 @@ html(lang="en")
 			meta(name="viewport", content="width=device-width")
 			meta(name="apple-mobile-web-app-capable", content="yes")
 			meta(name="mobile-web-app-capable", content="yes")
-			meta(name="theme-color", content="", id="mobile-status-bar-color")
+			meta(name="theme-color", content="")
 	body
 		main
 			div#search-container

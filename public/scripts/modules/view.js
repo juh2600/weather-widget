@@ -38,16 +38,13 @@ export const setUnits = (units) => {
 	return false;
 };
 
-export const setTheme = (name) => {
-	Themes.names.forEach(theme => {
-		$('body').classList.remove(theme);
-	});
-	if(Themes.themes[name])
-		$('body').classList.add(`theme-${name}`);
-	else
-		//$('body').classList.add(`theme-${DEFAULT_THEME}`);
-		setTheme(DEFAULT_THEME);
-	$('#mobile-status-bar-color').content = Themes.themes[name].mobile['status-bar'];
+export const setTheme = (names) => {
+	$('html').classList = names.join(' ');
+	let styleLink = $(`link[disabled][rel=stylesheet][name=${names[0]}]`);
+	if(styleLink) styleLink.disabled = false;
+	let themeColor = $('meta[name=theme-color]');
+	themeColor.content =
+		window.getComputedStyle(themeColor).backgroundColor;
 };
 
 export const populate = (forecast) => {

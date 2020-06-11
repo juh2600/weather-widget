@@ -1,6 +1,7 @@
 import * as Util from './util.js';
 import * as WeatherUtil from './weather_util.js';
 import * as View from './view.js';
+import { chooseTheme } from './theme_selector.js';
 import { fetch_cache } from './cache.js';
 import { get as getLogger } from './logger.js';
 const logger = getLogger('app');
@@ -113,10 +114,6 @@ const cleanWeatherData = (data) => {
 	}
 	convertTimes(data);
 	return data;
-};
-
-const chooseTheme = (current, forecast) => {
-	return 'unimplemented';
 };
 
 const summarizeForecast = (forecast) => {
