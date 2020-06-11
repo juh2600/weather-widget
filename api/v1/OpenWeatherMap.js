@@ -14,7 +14,8 @@ const process = {
 			out = {
 				"status": {
 					"ok": true,
-					"code": parseInt(data.cod)
+					"code": parseInt(data.cod),
+					"units": units
 				},
 				"place": {
 					"name": {
@@ -58,13 +59,14 @@ const process = {
 		return out;
 	},
 
-	forecast: function(data) {
+	forecast: function(data, units) {
 		let out = {};
 		if(parseInt(data.cod) == 200) {
 			out = {
 				"status": {
 					"ok": true,
-					"code": parseInt(data.cod)
+					"code": parseInt(data.cod),
+					"units": units
 				},
 				"place": {
 					"name": {
@@ -94,7 +96,7 @@ const process = {
 						"long": record.weather[0].description,
 						"temp": record.main.temp,
 						"wind": {
-							"speed": record.wind.speed,
+							"speed": units == 'metric' ? record.wind.speed * 60 * 60 / 1000 : record.wind.speed, // convert SI's m/s to metric's km/h
 							"heading": record.wind.deg
 						},
 						"clouds": record.clouds.all,
