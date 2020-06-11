@@ -87,9 +87,9 @@ const convertTimes = (data) => {
 			record.time.timestamp = convert(record.time.timestamp);
 			['sunrise', 'sunset'].forEach(evt => {
 				record.time[evt] = new Date(data.forecast.time[evt]);
-				record.time[evt].setDate(record.time.timestamp.getDate());
-				record.time[evt].setMonth(record.time.timestamp.getMonth());
-				record.time[evt].setYear(record.time.timestamp.getYear());
+				record.time[evt].setUTCDate(record.time.timestamp.getUTCDate());
+				record.time[evt].setUTCMonth(record.time.timestamp.getUTCMonth());
+				record.time[evt].setUTCFullYear(record.time.timestamp.getUTCFullYear());
 			});
 			record.time.daytime =
 					record.time.sunrise <= record.time.timestamp
