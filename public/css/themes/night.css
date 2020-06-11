@@ -1,0 +1,59 @@
+html.night > body
+{
+	background-image:
+		linear-gradient(to bottom, #333333ee, #33333399)
+		, url('/images/night/clear-small.png')
+		;
+}
+
+html.night > body
+, html.night > body input
+{
+	color: #e0e0e0ff;
+}
+
+html.night #search-status.error
+{
+	color: #ff4444ff;
+}
+
+html.night #search-container
+{
+	border-image: linear-gradient(to right, #555555aa, transparent) 1;
+}
+
+html.night #search::placeholder
+{
+	color: #888888cc;
+}
+
+html.night input[type=radio]:checked + label
+{
+	background-color: #55555533;
+}
+
+html.night input[type=radio] + label:hover
+{
+	background-color: #55555544;
+}
+
+html.night meta[name=theme-color] {
+	background-color: #2f3133;
+}
+
+@media all and (min-width: 55em)
+{
+	html.night > body
+	{
+		background-image:
+			linear-gradient(to bottom, #333333ee, #33333399)
+			, url('/images/night/clear-full.png')
+			;
+	}
+
+	html.night li.day-overview
+	, html.night li.period-breakdown
+	{
+		background-color: #55555533;
+	}
+}
