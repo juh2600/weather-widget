@@ -38,7 +38,7 @@ html.morning input[type=radio] + label:hover
 }
 
 html.morning meta[name=theme-color] {
-	background-color: #86ceeb;
+	background-color: #c2def6;
 }
 
 html.morning li.day-overview
