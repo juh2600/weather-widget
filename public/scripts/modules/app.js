@@ -8,7 +8,7 @@ const logger = getLogger('app');
 
 const Settings = {
 	defaults: {
-		place: 'Salt Lake City',
+		place: 'Moscow',
 		units: 'imperial'
 	},
 	cache: {
@@ -186,6 +186,19 @@ const loadWeather = async (place, units) => {
 	}
 };
 
+const attemptGeolocation = () => {
+	if('geolocation' in navigator)
+		navigator.geolocation.getCurrentPosition(
+			pos => { loadWeather(pos.coords.latitude + ',' + pos.coords.longitude, Settings.defaults.units); }
+		);
+};
+
+const loadFirstWeather = () => {
+	loadWeather(Settings.defaults.place, Settings.defaults.units);
+	if(!Util.parseQueryString(location.search).q)
+		attemptGeolocation();
+};
+
 export const init = () => {
 	logger.info('Starting Weatherboi');
 	initSettings();
@@ -196,5 +209,5 @@ export const init = () => {
 		onHoverUnits: Settings.cache.aggressive_prefetch ? prefetch : undefined
 	});
 	View.setUnits(Settings.defaults.units);
-	loadWeather(Settings.defaults.place, Settings.defaults.units);
+	loadFirstWeather();
 };
