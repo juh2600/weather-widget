@@ -1,6 +1,6 @@
 {
-  "name": "weather.jtreed.ml",
-  "version": "1.1.0",
+  "name": "Weatherboi",
+  "version": "1.2.0",
   "description": "A simple weather site",
   "main": "index.js",
   "scripts": {
