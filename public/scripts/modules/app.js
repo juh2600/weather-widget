@@ -157,9 +157,9 @@ const partitionForecast = (current, forecast) => {
 const displayWeather = (data) => {
 	View.setPlace(data.current.place);
 	View.clearSearchError();
+	const dailyForecast = partitionForecast(data.current, data.forecast);
+	View.populate(dailyForecast);
 	View.setTheme(chooseTheme(data.current, data.forecast));
-	data.forecast = partitionForecast(data.current, data.forecast);
-	View.populate(data.forecast);
 };
 
 const displayError = (status) => {

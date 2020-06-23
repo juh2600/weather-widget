@@ -40,8 +40,10 @@ export const setUnits = (units) => {
 
 export const setTheme = (names) => {
 	$('html').classList = names.join(' ');
-	let styleLink = $(`link[disabled][rel=stylesheet][name=${names[0]}]`);
-	if(styleLink) styleLink.disabled = false;
+	names.forEach(name => {
+		let styleLink = $(`link[disabled][rel=stylesheet][name=${name}]`);
+		if(styleLink) styleLink.disabled = false;
+	});
 	let themeColor = $('meta[name=theme-color]');
 	themeColor.content =
 		window.getComputedStyle(themeColor).backgroundColor;

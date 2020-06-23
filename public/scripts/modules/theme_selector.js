@@ -34,13 +34,16 @@ const timeIsNear = (a, b) => {
 
 // 10 special cases
 // 5 * 4 * 3 * 2 * 2 = 240 regular cases
+// lol no we're just gonna lump in the special cases too
+// have fun
 export const chooseTheme = (current, forecast) => {
 	// condition is one of
 	// drizzle, rain, snow, clear, clouds, or some special case
 	let condition = current.weather.short.toLocaleLowerCase();
+	console.log('condition', condition);
 
 	// special cases
-	if(Settings.special_cases.includes(condition)) return condition;
+	//if(Settings.special_cases.includes(condition)) return [condition];
 
 	// time is day, night, morning, or evening
 	let time = current.time.daytime?'day':'night';
@@ -54,6 +57,7 @@ export const chooseTheme = (current, forecast) => {
 	let recentPrecip = null;
 	if(recentRain) recentPrecip = 'rain';
 	if(recentSnow) recentPrecip = 'snow';
+	console.log('forecast:', forecast);
 	let upcomingClouds = forecast.weather.slice(0,Settings.horizon)
 		.map(record => record.weather.clouds >= Settings.cloudy_threshold)
 		.reduce((x,y) => x||y);

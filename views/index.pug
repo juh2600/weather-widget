@@ -24,8 +24,13 @@ html(lang="en")
 			each time in ['night', 'day', 'morning', 'evening']
 				link(href="/css/themes/"+time+".css", rel="preload", as="style")
 				link(href="/images/"+time+"/clear-small.jpg", rel="preload", as="image", media=breakpoint_small)
-				//link(href="/images/"+time+"/clear-full.jpg", rel="preload", as="image", media=breakpoint_big)
+				//-link(href="/images/"+time+"/clear-full.jpg", rel="preload", as="image", media=breakpoint_big)
 				link(disabled, href="/css/themes/"+time+".css", rel="stylesheet", type="text/css", name=time)
+			each special_case in ['thunderstorm']
+				link(href="/css/themes/"+special_case+".css", rel="preload", as="style")
+				link(href="/images/"+special_case+"/"+special_case+"-small.jpg", rel="preload", as="image", media=breakpoint_small)
+				//-link(href="/images/"+special_case+"/"+special_case+"-full.jpg", rel="preload", as="image", media=breakpoint_big)
+				link(disabled, href="/css/themes/"+special_case+".css", rel="stylesheet", type="text/css", name=special_case)
 
 			// Other stuff
 			link(href="/favicon.png", rel="icon")
