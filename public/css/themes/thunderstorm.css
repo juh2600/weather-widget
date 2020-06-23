@@ -1,0 +1,72 @@
+html.day.thunderstorm > body
+, html.night.thunderstorm > body
+{
+	background-image:
+		linear-gradient(to bottom, #282729, #282729ac 70%, transparent 130%)
+		, url('/images/thunderstorm/thunderstorm-small.jpg')
+		;
+}
+
+html.day.thunderstorm > body
+, html.day.thunderstorm > body input
+, html.night.thunderstorm > body
+, html.night.thunderstorm > body input
+{
+	color: #eeeeeeff;
+}
+
+html.day.thunderstorm #search-status.error
+, html.night.thunderstorm #search-status.error
+{
+	color: #aa0000ff;
+}
+
+html.day.thunderstorm #search-container
+, html.night.thunderstorm #search-container
+{
+	border-image: linear-gradient(to right, #999999aa, transparent) 1;
+}
+
+html.day.thunderstorm #search::placeholder
+, html.night.thunderstorm #search::placeholder
+{
+	color: #888888ee;
+}
+
+html.day.thunderstorm input[type=radio]:checked + label
+, html.night.thunderstorm input[type=radio]:checked + label
+{
+	background-color: #5b5b5b55;
+}
+
+html.day.thunderstorm input[type=radio] + label:hover
+, html.night.thunderstorm input[type=radio] + label:hover
+{
+	background-color: #5e5e5e55;
+}
+
+html.day.thunderstorm meta[name=theme-color]
+, html.night.thunderstorm meta[name=theme-color]
+{
+	background-color: #282729;
+}
+
+@media all and (min-width: 55em)
+{
+	html.day.thunderstorm > body
+	, html.night.thunderstorm > body
+	{
+		background-image:
+			linear-gradient(to bottom, #282729, #282729ac 70%, transparent 130%)
+			, url('/images/thunderstorm/thunderstorm-full.jpg')
+			;
+	}
+
+	html.day.thunderstorm li.day-overview
+	, html.day.thunderstorm li.period-breakdown
+	, html.night.thunderstorm li.day-overview
+	, html.night.thunderstorm li.period-breakdown
+	{
+		background-color: #5b5b5b33;
+	}
+}
