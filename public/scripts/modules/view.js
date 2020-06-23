@@ -138,6 +138,7 @@ export const init = (options) => {
 	};
 	const o = Object.assign({}, defaults, options);
 
+	if(o.onEnter)
 	$('input#search').addEventListener('keypress', (evt) => {
 		if(evt.key === 'Enter') {
 			o.onEnter(...getAllInput());
@@ -145,16 +146,19 @@ export const init = (options) => {
 		}
 	});
 
+	if(o.onType)
 	$('input#search').addEventListener('input', (evt) => {
 		o.onType(...getAllInput());
 	});
 
+	if(o.onSelectUnits)
 	$$('input[name=unit-type]').forEach(radio => {
 		radio.addEventListener('change', (evt) => {
 			o.onSelectUnits(getLastPlace(), getAllInput()[1]);
 		});
 	});
 
+	if(o.onHoverUnits)
 	$$('input[name=unit-type] + label').forEach(label => {
 		label.addEventListener('mouseover', (evt) => {
 			o.onHoverUnits(getLastPlace(), $('#'+label.htmlFor).value);
