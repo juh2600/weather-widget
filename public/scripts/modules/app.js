@@ -13,7 +13,7 @@ const Settings = {
 	},
 	cache: {
 		cache_enabled: true,
-		aggressive_prefetch: true,
+		aggressive_prefetch: false,
 		prefetch_min_query_length: 4, // minimum length of entire query
 		prefetch_min_token_length: 2, // minimum length of the last token
 		prefetch_ignore_last_char: [' '] // ignore queries ending in these
@@ -122,7 +122,7 @@ const summarizeForecast = (forecast) => {
 	const temps = workingSet.map(record => record.weather.temp);
 	const wind_speeds = workingSet.map(record => record.weather.wind.speed);
 	const conditions = workingSet.map(record => record.weather.short);
-	return {
+	const summary = {
 		"status": {
 			"type": "summary"
 		},
@@ -137,6 +137,8 @@ const summarizeForecast = (forecast) => {
 			}
 		}
 	};
+	console.log('Summary:', summary, workingSet);
+	return summary;
 };
 
 const partitionForecast = (current, forecast) => {

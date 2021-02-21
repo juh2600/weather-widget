@@ -30,6 +30,7 @@ export const getIcon = (record) => {
 		case 'cloud':
 			return Icons.cloud;
 		case 'clear':
+			console.log('Getting icon:',record.time);
 			return record.time.daytime ? Icons.sun : Icons.moon;
 		default: return '';
 	}
