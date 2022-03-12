@@ -11,7 +11,7 @@
     "url": "git+https://github.com/josephreed2600/weather-widget.git"
   },
   "author": "Joe Reed",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/josephreed2600/weather-widget/issues"
   },
