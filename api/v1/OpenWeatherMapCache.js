@@ -1,5 +1,5 @@
 const logger = require('logger').get('API::OpenWeatherMap::Cache');
-const fetch_http = require('node-fetch');
+const fetch_http = require('node-fetch'); // update to v3? or something?
 const cache_config = require('./cache_config');
 
 const cache = {};
