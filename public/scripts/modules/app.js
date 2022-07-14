@@ -92,9 +92,7 @@ const convertTimes = (data) => {
 				record.time[evt].setUTCMonth(record.time.timestamp.getUTCMonth());
 				record.time[evt].setUTCFullYear(record.time.timestamp.getUTCFullYear());
 			});
-			record.time.daytime =
-					record.time.sunrise <= record.time.timestamp
-					&& record.time.timestamp <= record.time.sunset;
+			record.time.daytime = WeatherUtil.isDaytime(record);
 		});
 	}
 	return data;
@@ -127,7 +125,8 @@ const summarizeForecast = (forecast) => {
 			"type": "summary"
 		},
 		"time": {
-			"timestamp": forecast[0].time.timestamp
+			"timestamp": forecast[0].time.timestamp,
+			"daytime": workingSet.some(record => record.time.daytime)
 		},
 		"weather": {
 			"short": WeatherUtil.getMostInterestingCondition(conditions),

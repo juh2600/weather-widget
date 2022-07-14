@@ -112,3 +112,8 @@ export const getTempUnit = (units) => {
 		default: return 'K';
 	}
 };
+
+export const isDaytime = (record) => {
+	return record.time.sunrise <= record.time.timestamp
+		&& record.time.timestamp <= record.time.sunset;
+};
