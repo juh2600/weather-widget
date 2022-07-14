@@ -59,8 +59,7 @@ export const chooseTheme = (current, forecast) => {
 	if(recentSnow) recentPrecip = 'snow';
 	console.log('forecast:', forecast);
 	let upcomingClouds = forecast.weather.slice(0,Settings.horizon)
-		.map(record => record.weather.clouds >= Settings.cloudy_threshold)
-		.reduce((x,y) => x||y);
+		.some(record => record.weather.clouds >= Settings.cloudy_threshold);
 	let windy = current.weather.wind.speed
 		>= Settings.high_wind_threshold[current.status.units];
 
