@@ -18,9 +18,9 @@
   "homepage": "https://github.com/josephreed2600/weather-widget#readme",
   "dependencies": {
     "app-root-path": "^3.0.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "compression": "^1.7.4",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "logger": "github:josephreed2600/logger#master",
     "node-fetch": "^2.6.7",
     "pug": "^3.0.1",
